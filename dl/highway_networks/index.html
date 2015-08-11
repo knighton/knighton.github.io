@@ -1,0 +1,84 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style type="text/css">
+a {
+    text-decoration: none;
+}
+.page {
+    margin-left: auto;
+    margin-right: auto;
+    width: 800px;
+}
+    </style>
+</head>
+<body>
+    <div class="page" style="margin-top: 100px">
+<h1>Highway Networks</h1>
+<h2>1. Papers</h2>
+<a href="http://arxiv.org/abs/1505.00387">Highway Networks</a><br>
+Rupesh Kumar Srivastava, Klaus Greff, Jürgen Schmidhuber<br>
+3 May 2015<br>
+<br>
+<a href="http://arxiv.org/abs/1507.06228">Training Very Deep Networks</a><br>
+Rupesh Kumar Srivastava, Klaus Greff, Jürgen Schmidhuber<br>
+22 Jul 2015<br>
+<br>
+Theoretical and empirical evidence indicates that the depth of neural networks
+is crucial for their success. However, training becomes more difficult as depth
+increases, and training of very deep networks remains an open problem. Here we
+introduce a new architecture designed to overcome this. Our so-called highway
+networks allow unimpeded information flow across many layers on information
+highways. They are inspired by Long Short-Term Memory recurrent networks and
+use adaptive gating units to regulate the information flow. Even with hundreds of
+layers, highway networks can be trained directly through simple gradient descent.
+This enables the study of extremely deep and efficient architectures.<br>
+<br>
+<h2>2. Comparison</h2>
+    </div>
+    <center>
+        <img src="comparison.png"></img>
+    </center>
+    <div class="page" style="margin-bottom: 100px">
+<h2>3. Example code (deepy)</h2>
+<pre>
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+from deepy.layers import NeuralLayer
+from deepy.utils import build_activation
+import theano.tensor as T
+
+class HighwayLayer(NeuralLayer):
+    """
+    Highway network layer.
+    See http://arxiv.org/abs/1505.00387.
+    """
+
+    def __init__(self, activation='relu', init=None, gate_bias=-5):
+        super(HighwayLayer, self).__init__("highway")
+        self.activation = activation
+        self.init = init
+        self.gate_bias = gate_bias
+
+    def setup(self):
+        self.output_dim = self.input_dim
+        self._act = build_activation(self.activation)
+        self.W_h = self.create_weight(self.input_dim, self.input_dim, "h", initializer=self.init)
+        self.W_t = self.create_weight(self.input_dim, self.input_dim, "t", initializer=self.init)
+        self.B_h = self.create_bias(self.input_dim, "h")
+        self.B_t = self.create_bias(self.input_dim, "t", value=self.gate_bias)
+
+        self.register_parameters(self.W_h, self.B_h, self.W_t, self.B_t)
+
+    def output(self, x):
+        t = self._act(T.dot(x, self.W_t) + self.B_t)
+        h = self._act(T.dot(x, self.W_h) + self.B_h)
+        return h * t + x * (1 - t)
+</pre>
+<br>
+<h2>4. IPython notebook</h2>
+<a href="https://github.com/Lasagne/Lasagne/blob/highway_example/examples/Highway%20Networks.ipynb">https://github.com/Lasagne/Lasagne/blob/highway_example/examples/Highway%20Networks.ipynb</a>
+    </div>
+</body>
+</html>

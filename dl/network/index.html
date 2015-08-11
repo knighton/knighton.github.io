@@ -1,0 +1,56 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style type="text/css">
+a {
+    text-decoration: none;
+}
+pre {
+    width: 700px;
+    font-size: 150%;
+    font-weight: bold;
+}
+.page {
+    margin-left: auto;
+    margin-right: auto;
+    width: 800px;
+}
+    </style>
+</head>
+<body>
+    <div class="page" style="margin-top: 100px">
+        <h1>A Keras network</h1>
+    </div>
+    <center>
+        <table>
+            <tr>
+                <td>
+                    <pre>
+vocab_size = 456
+max_seq_len = 256
+
+model = Sequential()
+
+model.add(Embedding(vocab_size, 8))
+
+model.add(LSTM(8, 64, return_sequences=True))
+
+model.add(TimeDistributedDense(64, 64))
+
+model.add(Flatten())
+
+model.add(Dense(64 * max_seq_len, 64))
+
+model.add(Dense(64, 1))
+
+model.add(Activation('sigmoid'))
+</pre>
+                </td>
+                <td>
+                    <img src="net.jpg" style="width: 700px"></img>
+                </td>
+            </tr>
+        </table>
+    </center>
+</body>
+</html>

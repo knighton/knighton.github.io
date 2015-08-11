@@ -1,0 +1,40 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style type="text/css">
+a {
+    text-decoration: none;
+}
+.page {
+    margin-left: auto;
+    margin-right: auto;
+    width: 800px;
+}
+    </style>
+</head>
+<body>
+    <div class="page" style="margin-top: 100px">
+        <h1>bAbi Q&amp;A in Keras</h1>
+        <img src="keras_qa_model.svg"></img>
+        <pre>
+sentrnn = Sequential()
+sentrnn.add(Embedding(vocab_size, EMBED_HIDDEN_SIZE, mask_zero=True))
+sentrnn.add(RNN(EMBED_HIDDEN_SIZE, SENT_HIDDEN_SIZE, return_sequences=False))
+
+qrnn = Sequential()
+qrnn.add(Embedding(vocab_size, EMBED_HIDDEN_SIZE))
+qrnn.add(RNN(EMBED_HIDDEN_SIZE, QUERY_HIDDEN_SIZE, return_sequences=False))
+
+model = Sequential()
+model.add(Merge([sentrnn, qrnn], mode='concat'))
+model.add(Dense(SENT_HIDDEN_SIZE + QUERY_HIDDEN_SIZE, vocab_size, activation='softmax'))
+
+model.compile(optimizer='adam', loss='categorical_crossentropy', class_mode='categorical')
+
+model.fit([X, Xq], Y, batch_size=BATCH_SIZE, nb_epoch=EPOCHS, validation_split=0.05, show_accuracy=True)
+
+loss, acc = model.evaluate([tX, tXq], tY, batch_size=BATCH_SIZE, show_accuracy=True)
+</pre>
+    </div>
+</body>
+</html>

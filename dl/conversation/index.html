@@ -1,0 +1,108 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style type="text/css">
+a {
+    text-decoration: none;
+}
+.page {
+    margin-left: auto;
+    margin-right: auto;
+    width: 800px;
+}
+.human {
+    font-size: 150%;
+    margin: 10px;
+    color: blue;
+}
+.machine {
+    font-size: 150%;
+    margin: 10px;
+    color: red;
+}
+    </style>
+</head>
+<body>
+    <div class="page" style="margin-top: 100px">
+<h1>Conversation</h1>
+<h2>1. Paper</h2>
+<a href="http://arxiv.org/abs/1506.05869">A Neural Conversational Model</a><br>
+Oriol Vinyals, Quoc Le<br>
+19 June 2015<br>
+<br>
+Conversational modeling is an important task in
+natural language understanding and machine intelligence.
+Although previous approaches exist,
+they are often restricted to specific domains
+(e.g., booking an airline ticket) and require handcrafted
+rules. In this paper, we present a simple
+approach for this task which uses the recently
+proposed sequence to sequence framework. <span style="font-weight: bold">Our
+model converses by predicting the next sentence
+given the previous sentence or sentences in a
+conversation.</span> The strength of our model is that
+it can be trained end-to-end and thus requires
+much fewer hand-crafted rules. We find that this
+straightforward model can generate simple conversations
+given a large conversational training
+dataset. Our preliminary results suggest that, despite
+optimizing the wrong objective function,
+the model is able to converse well. It is able
+extract knowledge from both a domain specific
+dataset, and from a large, noisy, and general domain
+dataset of movie subtitles. On a domainspecific
+IT helpdesk dataset, the model can find
+a solution to a technical problem via conversations.
+On a noisy open-domain movie transcript
+dataset, the model can perform simple forms of
+common sense reasoning. As expected, we also
+find that the lack of consistency is a common failure
+mode of our model.
+<h2>2. Sequence-to-sequence</h2>
+    </div>
+    <center>
+        <img src="seq2seq.png"></img>
+    </center>
+    <div class="page" style="margin-bottom: 100px">
+<h2>3. Example dialogue (between <span style="color: blue">human</span> and <span style="color: red">machine</span>)</h2>
+<div class="human">what is moral ?</div>
+<div class="machine">what empowered humanity , what intellectual the essence is .</div>
+<div class="human">what is immoral ?</div>
+<div class="machine">the fact that you have a child .</div>
+<div class="human">what is morality ?</div>
+<div class="machine">what is altruism ?</div>
+<div class="human">what is the definition of altruism ?</div>
+<div class="machine">if you don ’t believe in god , then you don ’t know .</div>
+<div class="human">ok ... so what is the definition of morality ?</div>
+<div class="machine">well , the truth is , you ’re not a believer in god almighty .</div>
+<div class="human">tell me the definition of morality , i am quite upset now !</div>
+<div class="machine">i ’m not ashamed of being a philosopher !</div>
+<div class="human">tell me the definition of morality .</div>
+<div class="machine">i don ’t have ethics .</div>
+<div class="human">look , i need help , i need to know more about morality ...</div>
+<div class="machine">i don ’t know what ethics is .</div>
+<div class="human">seriously , what is morality ?</div>
+<div class="machine">what is the definition of living ?</div>
+<div class="human">why living has anything to do with morality ?</div>
+<div class="machine">you ’re not a cop .</div>
+<div class="human">okay , i need to know how should i behave morally ...</div>
+<div class="machine">i don ’t know how to tell you .</div>
+<div class="human">is morality and ethics the same ?</div>
+<div class="machine">yes , sir .</div>
+<div class="human">what are the things that i do to be immoral ?</div>
+<div class="machine">i don ’t know .</div>
+<div class="human">give me some examples of moral actions ...</div>
+<div class="machine">i ’m not a moralist .</div>
+<div class="human">alright , morality ?</div>
+<div class="machine">integrity .</div>
+<div class="human">what is integrity ?</div>
+<div class="machine">i ’m sorry , i don ’t know what else to say .</div>
+<div class="human">be moral !</div>
+<div class="machine">be a man !</div>
+<div class="human">i really like our discussion on morality and ethics ...</div>
+<div class="machine">and how i ’m not in the mood for a philosophical debate .</div>
+<div class="human">what do you like to talk about ?</div>
+<div class="machine">nothing .</div>
+    </div>
+</body>
+</html>

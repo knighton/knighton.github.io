@@ -1,0 +1,44 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style type="text/css">
+a {
+    text-decoration: none;
+}
+.page {
+    margin-left: auto;
+    margin-right: auto;
+    width: 800px;
+}
+    </style>
+</head>
+<body>
+    <div class="page" style="margin-top: 100px">
+<h1>Grammar</h1>
+<h2>1. Paper</h2>
+<a href="http://arxiv.org/abs/1412.7449">Grammar as a Foreign Language</a><br>
+Oriol Vinyals, Lukasz Kaiser, Terry Koo, Slav Petrov, Ilya Sutskever, Geoffrey Hinton<br>
+23 Dec 2014<br>
+<br>
+Syntactic constituency parsing is a fundamental problem in natural language processing and has been the subject of intensive research and engineering for decades. As a result, the most accurate parsers are domain specific, complex, and inefficient. In this paper we show that <span style="font-weight: bold">the domain agnostic attention-enhanced sequence-to-sequence model achieves state-of-the-art results on the most widely used syntactic constituency parsing dataset, when trained on a large synthetic corpus that was annotated using existing parsers</span>. It also matches the performance of standard parsers when trained only on a small human-annotated dataset, which shows that this model is highly data-efficient, in contrast to sequence-to-sequence models without the attention mechanism. Our parser is also fast, processing over a hundred sentences per second with an unoptimized CPU implementation.
+    </div>
+    <div class="page">
+<h2>2. Parse trees are squashed into "English to French" bitexts</h2>
+    </div>
+    <center>
+        <img src="linearization.png"></img>
+    </center>
+    <div class="page">
+<h2>3. Pairs are fed into the model during training like this</h2>
+    </div>
+    <center>
+        <img src="training.png"></img>
+    </center>
+    <div class="page">
+<h2>4. It outperforms the parser that was used to generate its training data</h2>
+    </div>
+    <center>
+        <img src="sentence_length.png"></img>
+    </center>
+</body>
+</html>

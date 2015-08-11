@@ -1,0 +1,93 @@
+<html>
+<head>
+    <style type="text/css">
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+td {
+    vertical-align: top;
+}
+.file_name {
+    margin: 10px;
+    padding: 5px;
+    font-size: 250%;
+    font-weight: bold;
+    background-color: #ccc;
+    font-family: monospace;
+}
+pre {
+    width: 700px;
+    margin: 10px;
+    padding: 5px;
+    background: #eee;
+    font-size: 130%;
+    font-weight: bold;
+}
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>
+                <div class="file_name" style="background: #dbb">train.py</div>
+                <pre style="background: #fdd">
+...
+</pre>
+            </td>
+            <td>
+                <div class="file_name">requirements.txt</div>
+                <pre>
+...
+</pre>
+                <div class="file_name" style="background: #bcd">datasets.py</div>
+                    <pre style="background: #def">
+import os
+import random
+
+
+def load_chinese_sent():
+    def each_text(d):
+        for fn in os.listdir(d):
+            fn = os.path.join(d, fn)
+            with open(fn) as f:
+                yield f.read().decode('utf-8')
+
+    base = 'data/jingdong/'
+    poss = list(each_text(os.path.join(base, 'pos')))
+    negs = list(each_text(os.path.join(base, 'neg')))
+    pairs = map(lambda s: (s, 'pos'), poss) + \
+            map(lambda s: (s, 'neg'), negs)
+
+    random.shuffle(pairs)
+
+    n = len(pairs)
+    train = zip(*pairs[:int(n * 0.8)])
+    val = zip(*pairs[int(n * 0.8):int(n * 0.9)])
+    test = zip(*pairs[int(n * 0.9):])
+    return train, val, test
+</pre>
+                <div class="file_name" style="background: #6c6">pipelines.py</div>
+<pre style="background: #bfb">
+def zh_embed_2d():
+    X = TransformerPipeline([
+        MaxLength(256),
+        MinLength(256),
+        IntCoder(min_freq=10),
+    ])
+
+    y = TransformerPipeline([
+        AtomBinarizer(),
+    ])
+
+    return X, y
+</pre>
+                <div class="file_name" style="background: #dcb">networks.py</div>
+                <pre style="background: #fed">
+...
+</pre>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

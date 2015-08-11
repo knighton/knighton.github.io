@@ -1,0 +1,69 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style type="text/css">
+a {
+    text-decoration: none;
+}
+td {
+    vertical-align: top;
+}
+pre {
+    background: #eee;
+    padding: 10px;
+    margin: 10px;
+}
+.page {
+    margin-left: auto;
+    margin-right: auto;
+    width: 800px;
+}
+    </style>
+</head>
+<body>
+    <div class="page" style="margin-top: 100px">
+        <h1>Why GPUs?</h1>
+    </div>
+    <center>
+        <table>
+            <tr>
+                <td>
+                    <center><h2>CPU</h2></center>
+                    <center><h2 style="color: red">2.5 hours</h2></center>
+                    <pre>
+[0.000] Loading transformed data...
+[15.303] Constructing model...
+X_train: (72000, 128)
+y_train: (72000, 2)
+Vocab size: 452
+[71.258] Training...
+Train on 72000 samples, validate on 9000 samples
+Epoch 0
+  256/72000 [..............................] - ETA: 9068s - loss: 0.6913 - acc: 0.5273
+</pre>
+                </td>
+                <td>
+                    <center><h2>GPU</h2></center>
+                    <center><h2 style="color: green">3 minutes</h2></center>
+                    <pre>
+Using gpu device 0: GeForce GTX TITAN X (CNMeM is disabled)
+[0.000] Loading transformed data...
+[14.957] Constructing model...
+X_train: (72000, 128)
+y_train: (72000, 2)
+Vocab size: 452
+[61.424] Training...
+Train on 72000 samples, validate on 9000 samples
+Epoch 0
+72000/72000 [==============================] - 187s - loss: 0.3510 - acc: 0.8555 - val_loss: 0.4129 - val_acc: 0.8152
+Epoch 1
+72000/72000 [==============================] - 185s - loss: 0.3052 - acc: 0.8788 - val_loss: 0.3703 - val_acc: 0.8378
+Epoch 2
+ 6784/72000 [=>............................] - ETA: 165s - loss: 0.2974 - acc: 0.8833
+</pre>
+                </td>
+            </tr>
+        </table>
+    </center>
+</body>
+</html>
