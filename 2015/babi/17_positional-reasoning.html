@@ -1,0 +1,1899 @@
+<html>
+<head>
+    <style type="text/css">
+body {
+    background: #69c;
+}
+#page {
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    width: 800px;
+}
+.episode {
+    margin: 10px;
+    padding: 10px;
+    background: #def;
+    border: 2px solid white;
+    border-radius: 2px;
+}
+.episode_title {
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+}
+.correct {
+    background: #8f8;
+}
+.wrong {
+    background: #fcc;
+}
+    </style>
+</head>
+<body>
+    <div id="page">
+        <div class="episode">
+            <div class="episode_title">Episode 1 (8 / 8)</div>
+1 3 6 The pink rectangle is to the left of the triangle. <br>
+1 3 6 The triangle is to the left of the red square. <br>
+<span class="correct">1 1 3 Is the pink rectangle to the right of the red square? "no"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the left of the red square? "yes"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the left of the red square? "yes"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the left of the red square? "yes"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the right of the red square? "no"</span><br>
+<span class="correct">1 1 3 Is the red square to the right of the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the left of the red square? "yes"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the left of the red square? "yes"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 2 (8 / 8)</div>
+1 3 2 The red square is below the blue square. <br>
+1 3 6 The red square is to the left of the pink rectangle. <br>
+<span class="correct">1 1 1 Is the blue square below the pink rectangle? "no"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the left of the blue square? "no"</span><br>
+<span class="correct">1 1 3 Is the blue square to the left of the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the left of the blue square? "no"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle above the blue square? "no"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the left of the blue square? "no"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle above the blue square? "no"</span><br>
+<span class="correct">1 1 1 Is the blue square above the pink rectangle? "yes"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 3 (8 / 8)</div>
+1 3 6 The pink rectangle is to the left of the triangle. <br>
+1 3 2 The triangle is below the red sphere. <br>
+<span class="correct">1 1 1 Is the red sphere above the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle below the red sphere? "yes"</span><br>
+<span class="correct">1 1 1 Is the red sphere below the pink rectangle? "no"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle below the red sphere? "yes"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle above the red sphere? "no"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the left of the pink rectangle? "no"</span><br>
+<span class="correct">1 1 1 Is the red sphere below the pink rectangle? "no"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle below the red sphere? "yes"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 4 (8 / 8)</div>
+1 3 2 The triangle is above the blue square. <br>
+1 3 2 The triangle is below the red square. <br>
+<span class="correct">1 1 1 Is the blue square below the red square? "yes"</span><br>
+<span class="correct">1 1 1 Is the blue square below the red square? "yes"</span><br>
+<span class="correct">1 1 1 Is the red square above the blue square? "yes"</span><br>
+<span class="correct">1 1 3 Is the blue square to the right of the red square? "no"</span><br>
+<span class="correct">1 1 3 Is the blue square to the left of the red square? "no"</span><br>
+<span class="correct">1 1 1 Is the red square below the blue square? "no"</span><br>
+<span class="correct">1 1 3 Is the blue square to the right of the red square? "no"</span><br>
+<span class="correct">1 1 1 Is the red square below the blue square? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 5 (8 / 8)</div>
+1 3 2 The red square is below the triangle. <br>
+1 3 6 The pink rectangle is to the left of the red square. <br>
+<span class="correct">1 1 1 Is the triangle above the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle below the triangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the triangle to the right of the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the triangle below the pink rectangle? "no"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle above the triangle? "no"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle below the triangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the right of the triangle? "no"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle below the triangle? "yes"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 6 (8 / 8)</div>
+1 3 6 The yellow square is to the left of the blue square. <br>
+1 3 2 The red square is below the yellow square. <br>
+<span class="correct">1 1 1 Is the red square above the blue square? "no"</span><br>
+<span class="correct">1 1 1 Is the blue square above the red square? "yes"</span><br>
+<span class="correct">1 1 1 Is the blue square below the red square? "no"</span><br>
+<span class="correct">1 1 3 Is the blue square to the right of the red square? "yes"</span><br>
+<span class="correct">1 1 1 Is the blue square above the red square? "yes"</span><br>
+<span class="correct">1 1 1 Is the blue square above the red square? "yes"</span><br>
+<span class="correct">1 1 1 Is the red square below the blue square? "yes"</span><br>
+<span class="correct">1 1 1 Is the blue square below the red square? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 7 (8 / 8)</div>
+1 3 2 The red sphere is above the yellow square. <br>
+1 3 6 The triangle is to the left of the yellow square. <br>
+<span class="correct">1 1 1 Is the triangle above the red sphere? "no"</span><br>
+<span class="correct">1 1 3 Is the triangle to the left of the red sphere? "yes"</span><br>
+<span class="correct">1 1 3 Is the triangle to the left of the red sphere? "yes"</span><br>
+<span class="correct">1 1 1 Is the red sphere above the triangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the red sphere above the triangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the left of the triangle? "no"</span><br>
+<span class="correct">1 1 1 Is the triangle below the red sphere? "yes"</span><br>
+<span class="correct">1 1 3 Is the triangle to the right of the red sphere? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 8 (8 / 8)</div>
+1 3 2 The pink rectangle is below the red square. <br>
+1 3 6 The triangle is to the left of the red square. <br>
+<span class="correct">1 1 1 Is the pink rectangle below the triangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle below the triangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the right of the triangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the triangle to the right of the pink rectangle? "no"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the left of the triangle? "no"</span><br>
+<span class="correct">1 1 3 Is the triangle to the right of the pink rectangle? "no"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the right of the triangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the right of the triangle? "yes"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 9 (8 / 8)</div>
+1 3 2 The red sphere is above the yellow square. <br>
+1 3 6 The red sphere is to the right of the red square. <br>
+<span class="correct">1 1 3 Is the yellow square to the left of the red square? "no"</span><br>
+<span class="correct">1 1 1 Is the yellow square above the red square? "no"</span><br>
+<span class="correct">1 1 1 Is the red square above the yellow square? "yes"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the right of the red square? "yes"</span><br>
+<span class="correct">1 1 3 Is the red square to the left of the yellow square? "yes"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the right of the red square? "yes"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the left of the red square? "no"</span><br>
+<span class="correct">1 1 1 Is the yellow square below the red square? "yes"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 10 (8 / 8)</div>
+1 3 2 The blue square is below the yellow square. <br>
+1 3 2 The red sphere is below the blue square. <br>
+<span class="correct">1 1 1 Is the yellow square below the red sphere? "no"</span><br>
+<span class="correct">1 1 1 Is the yellow square above the red sphere? "yes"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the right of the red sphere? "no"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the left of the red sphere? "no"</span><br>
+<span class="correct">1 1 1 Is the yellow square above the red sphere? "yes"</span><br>
+<span class="correct">1 1 1 Is the red sphere below the yellow square? "yes"</span><br>
+<span class="correct">1 1 1 Is the red sphere below the yellow square? "yes"</span><br>
+<span class="correct">1 1 1 Is the red sphere below the yellow square? "yes"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 11 (8 / 8)</div>
+1 3 6 The blue square is to the left of the red sphere. <br>
+1 3 2 The blue square is below the pink rectangle. <br>
+<span class="correct">1 1 1 Is the red sphere below the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the right of the red sphere? "no"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the left of the pink rectangle? "no"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the right of the red sphere? "no"</span><br>
+<span class="correct">1 1 1 Is the red sphere above the pink rectangle? "no"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the left of the red sphere? "yes"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the left of the pink rectangle? "no"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the right of the red sphere? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 12 (8 / 8)</div>
+1 3 2 The red sphere is below the triangle. <br>
+1 3 2 The blue square is below the red sphere. <br>
+<span class="correct">1 1 3 Is the triangle to the left of the blue square? "no"</span><br>
+<span class="correct">1 1 3 Is the blue square to the left of the triangle? "no"</span><br>
+<span class="correct">1 1 1 Is the blue square below the triangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the triangle below the blue square? "no"</span><br>
+<span class="correct">1 1 1 Is the triangle above the blue square? "yes"</span><br>
+<span class="correct">1 1 1 Is the triangle below the blue square? "no"</span><br>
+<span class="correct">1 1 1 Is the triangle below the blue square? "no"</span><br>
+<span class="correct">1 1 3 Is the blue square to the left of the triangle? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 13 (8 / 8)</div>
+1 3 2 The yellow square is above the triangle. <br>
+1 3 2 The pink rectangle is below the triangle. <br>
+<span class="correct">1 1 1 Is the pink rectangle below the yellow square? "yes"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle below the yellow square? "yes"</span><br>
+<span class="correct">1 1 1 Is the yellow square above the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the yellow square below the pink rectangle? "no"</span><br>
+<span class="correct">1 1 1 Is the yellow square above the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the right of the pink rectangle? "no"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the left of the pink rectangle? "no"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the right of the yellow square? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 14 (8 / 8)</div>
+1 3 6 The red sphere is to the right of the red square. <br>
+1 3 6 The red sphere is to the left of the pink rectangle. <br>
+<span class="correct">1 1 3 Is the pink rectangle to the left of the red square? "no"</span><br>
+<span class="correct">1 1 3 Is the red square to the left of the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the red square above the pink rectangle? "no"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the right of the red square? "yes"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle below the red square? "no"</span><br>
+<span class="correct">1 1 3 Is the red square to the left of the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the right of the red square? "yes"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle below the red square? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 15 (8 / 8)</div>
+1 3 6 The triangle is to the left of the red sphere. <br>
+1 3 6 The pink rectangle is to the right of the red sphere. <br>
+<span class="correct">1 1 3 Is the triangle to the right of the pink rectangle? "no"</span><br>
+<span class="correct">1 1 3 Is the triangle to the left of the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the triangle to the left of the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle above the triangle? "no"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle above the triangle? "no"</span><br>
+<span class="correct">1 1 3 Is the triangle to the left of the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the triangle to the right of the pink rectangle? "no"</span><br>
+<span class="correct">1 1 3 Is the triangle to the left of the pink rectangle? "yes"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 16 (8 / 8)</div>
+1 3 2 The pink rectangle is below the red square. <br>
+1 3 6 The triangle is to the left of the pink rectangle. <br>
+<span class="correct">1 1 3 Is the red square to the right of the triangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the triangle below the red square? "yes"</span><br>
+<span class="correct">1 1 1 Is the triangle above the red square? "no"</span><br>
+<span class="correct">1 1 3 Is the red square to the right of the triangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the red square above the triangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the red square to the left of the triangle? "no"</span><br>
+<span class="correct">1 1 1 Is the red square below the triangle? "no"</span><br>
+<span class="correct">1 1 1 Is the red square above the triangle? "yes"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 17 (8 / 8)</div>
+1 3 2 The triangle is above the red square. <br>
+1 3 2 The red square is above the pink rectangle. <br>
+<span class="correct">1 1 1 Is the triangle above the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle above the triangle? "no"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle below the triangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the triangle above the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the right of the triangle? "no"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle below the triangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the triangle above the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the left of the triangle? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 18 (8 / 8)</div>
+1 3 6 The red square is to the right of the red sphere. <br>
+1 3 6 The red sphere is to the right of the yellow square. <br>
+<span class="correct">1 1 3 Is the yellow square to the left of the red square? "yes"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the right of the red square? "no"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the left of the red square? "yes"</span><br>
+<span class="correct">1 1 1 Is the red square above the yellow square? "no"</span><br>
+<span class="correct">1 1 1 Is the red square above the yellow square? "no"</span><br>
+<span class="correct">1 1 3 Is the red square to the right of the yellow square? "yes"</span><br>
+<span class="correct">1 1 3 Is the red square to the left of the yellow square? "no"</span><br>
+<span class="correct">1 1 1 Is the yellow square below the red square? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 19 (8 / 8)</div>
+1 3 2 The red square is below the red sphere. <br>
+1 3 6 The red sphere is to the left of the pink rectangle. <br>
+<span class="correct">1 1 1 Is the red square below the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the red square below the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle above the red square? "yes"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the left of the red square? "no"</span><br>
+<span class="correct">1 1 1 Is the red square above the pink rectangle? "no"</span><br>
+<span class="correct">1 1 3 Is the red square to the left of the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the left of the red square? "no"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the left of the red square? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 20 (8 / 8)</div>
+1 3 6 The pink rectangle is to the right of the blue square. <br>
+1 3 2 The red sphere is below the blue square. <br>
+<span class="correct">1 1 3 Is the pink rectangle to the right of the red sphere? "yes"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the left of the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the right of the red sphere? "yes"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle above the red sphere? "yes"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle below the red sphere? "no"</span><br>
+<span class="correct">1 1 1 Is the red sphere above the pink rectangle? "no"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the left of the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the right of the pink rectangle? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 21 (8 / 8)</div>
+1 3 6 The yellow square is to the right of the red sphere. <br>
+1 3 6 The yellow square is to the left of the red square. <br>
+<span class="correct">1 1 3 Is the red square to the right of the red sphere? "yes"</span><br>
+<span class="correct">1 1 3 Is the red square to the left of the red sphere? "no"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the left of the red square? "yes"</span><br>
+<span class="correct">1 1 3 Is the red square to the right of the red sphere? "yes"</span><br>
+<span class="correct">1 1 1 Is the red sphere above the red square? "no"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the right of the red square? "no"</span><br>
+<span class="correct">1 1 1 Is the red square above the red sphere? "no"</span><br>
+<span class="correct">1 1 3 Is the red square to the right of the red sphere? "yes"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 22 (8 / 8)</div>
+1 3 6 The blue square is to the right of the pink rectangle. <br>
+1 3 2 The blue square is below the yellow square. <br>
+<span class="correct">1 1 1 Is the pink rectangle below the yellow square? "yes"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the left of the pink rectangle? "no"</span><br>
+<span class="correct">1 1 1 Is the yellow square below the pink rectangle? "no"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the right of the yellow square? "no"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle below the yellow square? "yes"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the left of the yellow square? "yes"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle above the yellow square? "no"</span><br>
+<span class="correct">1 1 1 Is the yellow square above the pink rectangle? "yes"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 23 (8 / 8)</div>
+1 3 2 The red square is below the red sphere. <br>
+1 3 6 The red square is to the right of the blue square. <br>
+<span class="correct">1 1 1 Is the red sphere below the blue square? "no"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the right of the blue square? "yes"</span><br>
+<span class="correct">1 1 1 Is the blue square below the red sphere? "yes"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the left of the blue square? "no"</span><br>
+<span class="correct">1 1 3 Is the blue square to the left of the red sphere? "yes"</span><br>
+<span class="correct">1 1 1 Is the red sphere below the blue square? "no"</span><br>
+<span class="correct">1 1 1 Is the blue square below the red sphere? "yes"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the right of the blue square? "yes"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 24 (8 / 8)</div>
+1 3 2 The red sphere is below the red square. <br>
+1 3 6 The red square is to the left of the pink rectangle. <br>
+<span class="correct">1 1 1 Is the red sphere below the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the red sphere below the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the left of the red sphere? "no"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the right of the red sphere? "yes"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle below the red sphere? "no"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the right of the red sphere? "yes"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the left of the red sphere? "no"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the left of the pink rectangle? "yes"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 25 (8 / 8)</div>
+1 3 6 The blue square is to the left of the triangle. <br>
+1 3 2 The triangle is above the pink rectangle. <br>
+<span class="correct">1 1 3 Is the pink rectangle to the right of the blue square? "yes"</span><br>
+<span class="correct">1 1 3 Is the blue square to the right of the pink rectangle? "no"</span><br>
+<span class="correct">1 1 3 Is the blue square to the left of the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the right of the blue square? "yes"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle below the blue square? "yes"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the right of the blue square? "yes"</span><br>
+<span class="correct">1 1 3 Is the blue square to the left of the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the blue square to the left of the pink rectangle? "yes"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 26 (8 / 8)</div>
+1 3 6 The red square is to the left of the yellow square. <br>
+1 3 6 The red square is to the right of the red sphere. <br>
+<span class="correct">1 1 3 Is the yellow square to the right of the red sphere? "yes"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the right of the red sphere? "yes"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the right of the red sphere? "yes"</span><br>
+<span class="correct">1 1 1 Is the red sphere above the yellow square? "no"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the left of the red sphere? "no"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the left of the red sphere? "no"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the left of the yellow square? "yes"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the left of the yellow square? "yes"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 27 (8 / 8)</div>
+1 3 6 The pink rectangle is to the right of the red sphere. <br>
+1 3 2 The red square is below the pink rectangle. <br>
+<span class="correct">1 1 3 Is the red sphere to the right of the red square? "no"</span><br>
+<span class="correct">1 1 1 Is the red square below the red sphere? "yes"</span><br>
+<span class="correct">1 1 1 Is the red sphere above the red square? "yes"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the left of the red square? "yes"</span><br>
+<span class="correct">1 1 3 Is the red square to the right of the red sphere? "yes"</span><br>
+<span class="correct">1 1 1 Is the red square above the red sphere? "no"</span><br>
+<span class="correct">1 1 3 Is the red square to the left of the red sphere? "no"</span><br>
+<span class="correct">1 1 1 Is the red square above the red sphere? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 28 (8 / 8)</div>
+1 3 2 The red sphere is below the red square. <br>
+1 3 6 The pink rectangle is to the left of the red sphere. <br>
+<span class="correct">1 1 3 Is the pink rectangle to the left of the red square? "yes"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle below the red square? "yes"</span><br>
+<span class="correct">1 1 1 Is the red square above the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the red square to the right of the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the red square to the right of the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the red square below the pink rectangle? "no"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle above the red square? "no"</span><br>
+<span class="correct">1 1 1 Is the red square below the pink rectangle? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 29 (8 / 8)</div>
+1 3 2 The yellow square is below the red sphere. <br>
+1 3 6 The blue square is to the left of the yellow square. <br>
+<span class="correct">1 1 3 Is the red sphere to the left of the blue square? "no"</span><br>
+<span class="correct">1 1 1 Is the blue square below the red sphere? "yes"</span><br>
+<span class="correct">1 1 1 Is the blue square below the red sphere? "yes"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the left of the blue square? "no"</span><br>
+<span class="correct">1 1 1 Is the red sphere below the blue square? "no"</span><br>
+<span class="correct">1 1 3 Is the blue square to the left of the red sphere? "yes"</span><br>
+<span class="correct">1 1 1 Is the blue square above the red sphere? "no"</span><br>
+<span class="correct">1 1 1 Is the blue square below the red sphere? "yes"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 30 (8 / 8)</div>
+1 3 2 The blue square is above the red square. <br>
+1 3 6 The red square is to the left of the red sphere. <br>
+<span class="correct">1 1 3 Is the blue square to the left of the red sphere? "yes"</span><br>
+<span class="correct">1 1 1 Is the red sphere below the blue square? "yes"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the left of the blue square? "no"</span><br>
+<span class="correct">1 1 1 Is the blue square below the red sphere? "no"</span><br>
+<span class="correct">1 1 1 Is the blue square above the red sphere? "yes"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the right of the blue square? "yes"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the right of the blue square? "yes"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the left of the blue square? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 31 (8 / 8)</div>
+1 3 2 The red square is below the yellow square. <br>
+1 3 2 The red square is above the blue square. <br>
+<span class="correct">1 1 3 Is the blue square to the right of the yellow square? "no"</span><br>
+<span class="correct">1 1 1 Is the blue square below the yellow square? "yes"</span><br>
+<span class="correct">1 1 1 Is the yellow square above the blue square? "yes"</span><br>
+<span class="correct">1 1 1 Is the blue square below the yellow square? "yes"</span><br>
+<span class="correct">1 1 1 Is the yellow square above the blue square? "yes"</span><br>
+<span class="correct">1 1 1 Is the yellow square above the blue square? "yes"</span><br>
+<span class="correct">1 1 3 Is the blue square to the left of the yellow square? "no"</span><br>
+<span class="correct">1 1 3 Is the blue square to the right of the yellow square? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 32 (8 / 8)</div>
+1 3 2 The blue square is below the triangle. <br>
+1 3 2 The blue square is above the yellow square. <br>
+<span class="correct">1 1 3 Is the yellow square to the right of the triangle? "no"</span><br>
+<span class="correct">1 1 1 Is the yellow square below the triangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the yellow square below the triangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the right of the triangle? "no"</span><br>
+<span class="correct">1 1 1 Is the yellow square below the triangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the triangle to the left of the yellow square? "no"</span><br>
+<span class="correct">1 1 1 Is the triangle above the yellow square? "yes"</span><br>
+<span class="correct">1 1 1 Is the yellow square below the triangle? "yes"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 33 (8 / 8)</div>
+1 3 6 The yellow square is to the right of the blue square. <br>
+1 3 2 The yellow square is below the triangle. <br>
+<span class="correct">1 1 3 Is the blue square to the right of the triangle? "no"</span><br>
+<span class="correct">1 1 3 Is the triangle to the right of the blue square? "yes"</span><br>
+<span class="correct">1 1 3 Is the blue square to the right of the triangle? "no"</span><br>
+<span class="correct">1 1 1 Is the triangle below the blue square? "no"</span><br>
+<span class="correct">1 1 3 Is the blue square to the left of the triangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the triangle to the right of the blue square? "yes"</span><br>
+<span class="correct">1 1 1 Is the blue square below the triangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the triangle to the right of the blue square? "yes"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 34 (8 / 8)</div>
+1 3 6 The red square is to the right of the red sphere. <br>
+1 3 6 The red square is to the left of the blue square. <br>
+<span class="correct">1 1 3 Is the blue square to the right of the red sphere? "yes"</span><br>
+<span class="correct">1 1 1 Is the blue square below the red sphere? "no"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the right of the blue square? "no"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the left of the blue square? "yes"</span><br>
+<span class="correct">1 1 1 Is the red sphere below the blue square? "no"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the left of the blue square? "yes"</span><br>
+<span class="correct">1 1 3 Is the blue square to the right of the red sphere? "yes"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the right of the blue square? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 35 (8 / 8)</div>
+1 3 2 The blue square is below the triangle. <br>
+1 3 6 The triangle is to the right of the red sphere. <br>
+<span class="correct">1 1 3 Is the blue square to the left of the red sphere? "no"</span><br>
+<span class="correct">1 1 1 Is the red sphere above the blue square? "yes"</span><br>
+<span class="correct">1 1 3 Is the blue square to the left of the red sphere? "no"</span><br>
+<span class="correct">1 1 1 Is the red sphere above the blue square? "yes"</span><br>
+<span class="correct">1 1 1 Is the blue square below the red sphere? "yes"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the left of the blue square? "yes"</span><br>
+<span class="correct">1 1 3 Is the blue square to the right of the red sphere? "yes"</span><br>
+<span class="correct">1 1 1 Is the red sphere above the blue square? "yes"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 36 (8 / 8)</div>
+1 3 6 The red square is to the left of the triangle. <br>
+1 3 6 The red square is to the right of the yellow square. <br>
+<span class="correct">1 1 1 Is the triangle above the yellow square? "no"</span><br>
+<span class="correct">1 1 1 Is the yellow square below the triangle? "no"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the left of the triangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the yellow square above the triangle? "no"</span><br>
+<span class="correct">1 1 1 Is the yellow square above the triangle? "no"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the right of the triangle? "no"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the left of the triangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the left of the triangle? "yes"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 37 (8 / 8)</div>
+1 3 6 The pink rectangle is to the left of the blue square. <br>
+1 3 2 The pink rectangle is below the triangle. <br>
+<span class="correct">1 1 1 Is the blue square below the triangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the triangle above the blue square? "yes"</span><br>
+<span class="correct">1 1 1 Is the blue square above the triangle? "no"</span><br>
+<span class="correct">1 1 3 Is the triangle to the left of the blue square? "yes"</span><br>
+<span class="correct">1 1 3 Is the blue square to the right of the triangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the triangle to the right of the blue square? "no"</span><br>
+<span class="correct">1 1 3 Is the blue square to the left of the triangle? "no"</span><br>
+<span class="correct">1 1 1 Is the blue square above the triangle? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 38 (8 / 8)</div>
+1 3 2 The red square is below the red sphere. <br>
+1 3 6 The yellow square is to the left of the red sphere. <br>
+<span class="correct">1 1 1 Is the yellow square below the red square? "no"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the right of the red square? "no"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the right of the red square? "no"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the left of the red square? "yes"</span><br>
+<span class="correct">1 1 1 Is the red square above the yellow square? "no"</span><br>
+<span class="correct">1 1 1 Is the red square below the yellow square? "yes"</span><br>
+<span class="correct">1 1 3 Is the red square to the right of the yellow square? "yes"</span><br>
+<span class="correct">1 1 3 Is the red square to the left of the yellow square? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 39 (8 / 8)</div>
+1 3 6 The red sphere is to the left of the pink rectangle. <br>
+1 3 2 The red sphere is below the red square. <br>
+<span class="correct">1 1 1 Is the red square above the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the red square to the left of the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle above the red square? "no"</span><br>
+<span class="correct">1 1 3 Is the red square to the left of the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle above the red square? "no"</span><br>
+<span class="correct">1 1 1 Is the red square above the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the right of the red square? "yes"</span><br>
+<span class="correct">1 1 1 Is the red square below the pink rectangle? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 40 (8 / 8)</div>
+1 3 6 The blue square is to the right of the red sphere. <br>
+1 3 6 The blue square is to the left of the red square. <br>
+<span class="correct">1 1 1 Is the red sphere above the red square? "no"</span><br>
+<span class="correct">1 1 1 Is the red square below the red sphere? "no"</span><br>
+<span class="correct">1 1 1 Is the red square above the red sphere? "no"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the left of the red square? "yes"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the right of the red square? "no"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the left of the red square? "yes"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the right of the red square? "no"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the right of the red square? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 41 (8 / 8)</div>
+1 3 2 The red square is above the blue square. <br>
+1 3 6 The blue square is to the left of the yellow square. <br>
+<span class="correct">1 1 1 Is the red square below the yellow square? "no"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the left of the red square? "no"</span><br>
+<span class="correct">1 1 1 Is the red square above the yellow square? "yes"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the right of the red square? "yes"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the right of the red square? "yes"</span><br>
+<span class="correct">1 1 1 Is the yellow square below the red square? "yes"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the right of the red square? "yes"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the left of the red square? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 42 (8 / 8)</div>
+1 3 2 The triangle is above the blue square. <br>
+1 3 2 The blue square is above the yellow square. <br>
+<span class="correct">1 1 1 Is the yellow square below the triangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the triangle above the yellow square? "yes"</span><br>
+<span class="correct">1 1 1 Is the yellow square below the triangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the yellow square above the triangle? "no"</span><br>
+<span class="correct">1 1 1 Is the yellow square below the triangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the right of the triangle? "no"</span><br>
+<span class="correct">1 1 1 Is the yellow square above the triangle? "no"</span><br>
+<span class="correct">1 1 1 Is the yellow square below the triangle? "yes"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 43 (8 / 8)</div>
+1 3 2 The triangle is above the red sphere. <br>
+1 3 6 The triangle is to the right of the blue square. <br>
+<span class="correct">1 1 3 Is the red sphere to the right of the blue square? "yes"</span><br>
+<span class="correct">1 1 1 Is the red sphere above the blue square? "no"</span><br>
+<span class="correct">1 1 1 Is the blue square below the red sphere? "no"</span><br>
+<span class="correct">1 1 1 Is the red sphere below the blue square? "yes"</span><br>
+<span class="correct">1 1 1 Is the blue square above the red sphere? "yes"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the right of the blue square? "yes"</span><br>
+<span class="correct">1 1 1 Is the blue square above the red sphere? "yes"</span><br>
+<span class="correct">1 1 3 Is the blue square to the left of the red sphere? "yes"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 44 (8 / 8)</div>
+1 3 6 The red square is to the left of the triangle. <br>
+1 3 2 The red square is below the red sphere. <br>
+<span class="correct">1 1 1 Is the red sphere below the triangle? "no"</span><br>
+<span class="correct">1 1 1 Is the red sphere above the triangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the triangle above the red sphere? "no"</span><br>
+<span class="correct">1 1 1 Is the red sphere below the triangle? "no"</span><br>
+<span class="correct">1 1 1 Is the triangle below the red sphere? "yes"</span><br>
+<span class="correct">1 1 1 Is the triangle above the red sphere? "no"</span><br>
+<span class="correct">1 1 1 Is the red sphere above the triangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the red sphere above the triangle? "yes"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 45 (8 / 8)</div>
+1 3 6 The red sphere is to the right of the blue square. <br>
+1 3 2 The red sphere is below the red square. <br>
+<span class="correct">1 1 3 Is the red square to the right of the blue square? "yes"</span><br>
+<span class="correct">1 1 1 Is the red square above the blue square? "yes"</span><br>
+<span class="correct">1 1 1 Is the red square below the blue square? "no"</span><br>
+<span class="correct">1 1 3 Is the red square to the left of the blue square? "no"</span><br>
+<span class="correct">1 1 3 Is the blue square to the left of the red square? "yes"</span><br>
+<span class="correct">1 1 3 Is the red square to the left of the blue square? "no"</span><br>
+<span class="correct">1 1 3 Is the red square to the right of the blue square? "yes"</span><br>
+<span class="correct">1 1 3 Is the red square to the left of the blue square? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 46 (8 / 8)</div>
+1 3 6 The pink rectangle is to the right of the yellow square. <br>
+1 3 6 The pink rectangle is to the left of the red sphere. <br>
+<span class="correct">1 1 1 Is the yellow square above the red sphere? "no"</span><br>
+<span class="correct">1 1 1 Is the red sphere above the yellow square? "no"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the left of the red sphere? "yes"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the left of the yellow square? "no"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the right of the yellow square? "yes"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the left of the red sphere? "yes"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the left of the red sphere? "yes"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the left of the yellow square? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 47 (8 / 8)</div>
+1 3 2 The pink rectangle is above the blue square. <br>
+1 3 2 The yellow square is above the pink rectangle. <br>
+<span class="correct">1 1 1 Is the blue square below the yellow square? "yes"</span><br>
+<span class="correct">1 1 1 Is the yellow square above the blue square? "yes"</span><br>
+<span class="correct">1 1 1 Is the yellow square below the blue square? "no"</span><br>
+<span class="correct">1 1 1 Is the yellow square above the blue square? "yes"</span><br>
+<span class="correct">1 1 3 Is the blue square to the left of the yellow square? "no"</span><br>
+<span class="correct">1 1 1 Is the yellow square above the blue square? "yes"</span><br>
+<span class="correct">1 1 1 Is the yellow square below the blue square? "no"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the right of the blue square? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 48 (8 / 8)</div>
+1 3 6 The triangle is to the right of the red sphere. <br>
+1 3 2 The triangle is above the blue square. <br>
+<span class="correct">1 1 3 Is the blue square to the right of the red sphere? "yes"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the left of the blue square? "yes"</span><br>
+<span class="correct">1 1 1 Is the blue square below the red sphere? "yes"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the left of the blue square? "yes"</span><br>
+<span class="correct">1 1 1 Is the red sphere above the blue square? "yes"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the left of the blue square? "yes"</span><br>
+<span class="correct">1 1 1 Is the blue square below the red sphere? "yes"</span><br>
+<span class="correct">1 1 1 Is the blue square above the red sphere? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 49 (8 / 8)</div>
+1 3 6 The yellow square is to the right of the blue square. <br>
+1 3 6 The yellow square is to the left of the triangle. <br>
+<span class="correct">1 1 3 Is the triangle to the left of the blue square? "no"</span><br>
+<span class="correct">1 1 3 Is the blue square to the left of the triangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the triangle above the blue square? "no"</span><br>
+<span class="correct">1 1 3 Is the blue square to the left of the triangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the triangle to the right of the blue square? "yes"</span><br>
+<span class="correct">1 1 3 Is the triangle to the right of the blue square? "yes"</span><br>
+<span class="correct">1 1 3 Is the triangle to the right of the blue square? "yes"</span><br>
+<span class="correct">1 1 1 Is the triangle below the blue square? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 50 (8 / 8)</div>
+1 3 6 The yellow square is to the left of the triangle. <br>
+1 3 2 The yellow square is above the pink rectangle. <br>
+<span class="correct">1 1 3 Is the pink rectangle to the right of the triangle? "no"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the left of the triangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the right of the triangle? "no"</span><br>
+<span class="correct">1 1 1 Is the triangle below the pink rectangle? "no"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle below the triangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the triangle below the pink rectangle? "no"</span><br>
+<span class="correct">1 1 1 Is the triangle above the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle below the triangle? "yes"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 51 (8 / 8)</div>
+1 3 6 The triangle is to the right of the pink rectangle. <br>
+1 3 2 The triangle is above the yellow square. <br>
+<span class="correct">1 1 3 Is the pink rectangle to the right of the yellow square? "no"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the right of the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the left of the pink rectangle? "no"</span><br>
+<span class="correct">1 1 1 Is the yellow square above the pink rectangle? "no"</span><br>
+<span class="correct">1 1 1 Is the yellow square below the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the yellow square above the pink rectangle? "no"</span><br>
+<span class="correct">1 1 1 Is the yellow square above the pink rectangle? "no"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the right of the yellow square? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 52 (8 / 8)</div>
+1 3 2 The red sphere is above the yellow square. <br>
+1 3 6 The red sphere is to the left of the red square. <br>
+<span class="correct">1 1 1 Is the yellow square above the red square? "no"</span><br>
+<span class="correct">1 1 1 Is the red square below the yellow square? "no"</span><br>
+<span class="correct">1 1 1 Is the red square below the yellow square? "no"</span><br>
+<span class="correct">1 1 1 Is the yellow square above the red square? "no"</span><br>
+<span class="correct">1 1 1 Is the red square above the yellow square? "yes"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the right of the red square? "no"</span><br>
+<span class="correct">1 1 1 Is the red square below the yellow square? "no"</span><br>
+<span class="correct">1 1 1 Is the yellow square below the red square? "yes"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 53 (8 / 8)</div>
+1 3 2 The triangle is below the red sphere. <br>
+1 3 2 The yellow square is below the triangle. <br>
+<span class="correct">1 1 1 Is the red sphere above the yellow square? "yes"</span><br>
+<span class="correct">1 1 1 Is the yellow square below the red sphere? "yes"</span><br>
+<span class="correct">1 1 1 Is the red sphere below the yellow square? "no"</span><br>
+<span class="correct">1 1 1 Is the yellow square below the red sphere? "yes"</span><br>
+<span class="correct">1 1 1 Is the yellow square above the red sphere? "no"</span><br>
+<span class="correct">1 1 1 Is the yellow square above the red sphere? "no"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the right of the yellow square? "no"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the right of the yellow square? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 54 (8 / 8)</div>
+1 3 2 The blue square is above the pink rectangle. <br>
+1 3 6 The yellow square is to the right of the pink rectangle. <br>
+<span class="correct">1 1 1 Is the yellow square above the blue square? "no"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the right of the blue square? "yes"</span><br>
+<span class="correct">1 1 1 Is the yellow square below the blue square? "yes"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the left of the blue square? "no"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the left of the blue square? "no"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the left of the blue square? "no"</span><br>
+<span class="correct">1 1 3 Is the blue square to the right of the yellow square? "no"</span><br>
+<span class="correct">1 1 3 Is the blue square to the left of the yellow square? "yes"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 55 (8 / 8)</div>
+1 3 6 The pink rectangle is to the left of the red sphere. <br>
+1 3 2 The yellow square is above the pink rectangle. <br>
+<span class="correct">1 1 1 Is the yellow square above the red sphere? "yes"</span><br>
+<span class="correct">1 1 1 Is the red sphere above the yellow square? "no"</span><br>
+<span class="correct">1 1 1 Is the yellow square below the red sphere? "no"</span><br>
+<span class="correct">1 1 1 Is the red sphere above the yellow square? "no"</span><br>
+<span class="correct">1 1 1 Is the yellow square above the red sphere? "yes"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the left of the red sphere? "yes"</span><br>
+<span class="correct">1 1 1 Is the yellow square below the red sphere? "no"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the right of the red sphere? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 56 (8 / 8)</div>
+1 3 6 The triangle is to the right of the blue square. <br>
+1 3 6 The triangle is to the left of the pink rectangle. <br>
+<span class="correct">1 1 1 Is the pink rectangle above the blue square? "no"</span><br>
+<span class="correct">1 1 3 Is the blue square to the left of the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle below the blue square? "no"</span><br>
+<span class="correct">1 1 3 Is the blue square to the right of the pink rectangle? "no"</span><br>
+<span class="correct">1 1 1 Is the blue square above the pink rectangle? "no"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle above the blue square? "no"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the right of the blue square? "yes"</span><br>
+<span class="correct">1 1 3 Is the blue square to the right of the pink rectangle? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 57 (8 / 8)</div>
+1 3 6 The blue square is to the left of the red sphere. <br>
+1 3 6 The blue square is to the right of the pink rectangle. <br>
+<span class="correct">1 1 3 Is the red sphere to the right of the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle above the red sphere? "no"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the right of the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the left of the red sphere? "yes"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle above the red sphere? "no"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the right of the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the right of the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the right of the red sphere? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 58 (8 / 8)</div>
+1 3 6 The red sphere is to the right of the triangle. <br>
+1 3 2 The red sphere is above the blue square. <br>
+<span class="correct">1 1 3 Is the triangle to the left of the blue square? "yes"</span><br>
+<span class="correct">1 1 1 Is the triangle above the blue square? "yes"</span><br>
+<span class="correct">1 1 1 Is the triangle above the blue square? "yes"</span><br>
+<span class="correct">1 1 3 Is the triangle to the right of the blue square? "no"</span><br>
+<span class="correct">1 1 3 Is the triangle to the right of the blue square? "no"</span><br>
+<span class="correct">1 1 3 Is the triangle to the right of the blue square? "no"</span><br>
+<span class="correct">1 1 1 Is the triangle above the blue square? "yes"</span><br>
+<span class="correct">1 1 1 Is the triangle above the blue square? "yes"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 59 (8 / 8)</div>
+1 3 2 The yellow square is above the triangle. <br>
+1 3 6 The yellow square is to the left of the blue square. <br>
+<span class="correct">1 1 1 Is the triangle below the blue square? "yes"</span><br>
+<span class="correct">1 1 1 Is the triangle above the blue square? "no"</span><br>
+<span class="correct">1 1 1 Is the blue square above the triangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the blue square below the triangle? "no"</span><br>
+<span class="correct">1 1 1 Is the triangle below the blue square? "yes"</span><br>
+<span class="correct">1 1 1 Is the triangle below the blue square? "yes"</span><br>
+<span class="correct">1 1 3 Is the blue square to the right of the triangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the triangle to the left of the blue square? "yes"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 60 (8 / 8)</div>
+1 3 6 The yellow square is to the right of the red square. <br>
+1 3 2 The yellow square is below the blue square. <br>
+<span class="correct">1 1 3 Is the blue square to the right of the red square? "yes"</span><br>
+<span class="correct">1 1 1 Is the blue square above the red square? "yes"</span><br>
+<span class="correct">1 1 3 Is the blue square to the right of the red square? "yes"</span><br>
+<span class="correct">1 1 1 Is the red square above the blue square? "no"</span><br>
+<span class="correct">1 1 1 Is the red square above the blue square? "no"</span><br>
+<span class="correct">1 1 3 Is the red square to the left of the blue square? "yes"</span><br>
+<span class="correct">1 1 1 Is the red square above the blue square? "no"</span><br>
+<span class="correct">1 1 1 Is the red square above the blue square? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 61 (8 / 8)</div>
+1 3 6 The yellow square is to the left of the red square. <br>
+1 3 6 The yellow square is to the right of the blue square. <br>
+<span class="correct">1 1 1 Is the blue square above the red square? "no"</span><br>
+<span class="correct">1 1 3 Is the red square to the left of the blue square? "no"</span><br>
+<span class="correct">1 1 3 Is the blue square to the right of the red square? "no"</span><br>
+<span class="correct">1 1 3 Is the blue square to the left of the red square? "yes"</span><br>
+<span class="correct">1 1 3 Is the blue square to the left of the red square? "yes"</span><br>
+<span class="correct">1 1 3 Is the blue square to the left of the red square? "yes"</span><br>
+<span class="correct">1 1 3 Is the blue square to the left of the red square? "yes"</span><br>
+<span class="correct">1 1 1 Is the red square below the blue square? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 62 (8 / 8)</div>
+1 3 6 The triangle is to the left of the red square. <br>
+1 3 2 The triangle is below the blue square. <br>
+<span class="correct">1 1 1 Is the blue square below the red square? "no"</span><br>
+<span class="correct">1 1 3 Is the blue square to the right of the red square? "no"</span><br>
+<span class="correct">1 1 1 Is the red square below the blue square? "yes"</span><br>
+<span class="correct">1 1 3 Is the blue square to the right of the red square? "no"</span><br>
+<span class="correct">1 1 1 Is the red square below the blue square? "yes"</span><br>
+<span class="correct">1 1 3 Is the red square to the right of the blue square? "yes"</span><br>
+<span class="correct">1 1 3 Is the blue square to the right of the red square? "no"</span><br>
+<span class="correct">1 1 3 Is the red square to the right of the blue square? "yes"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 63 (8 / 8)</div>
+1 3 6 The red square is to the left of the red sphere. <br>
+1 3 2 The red sphere is above the yellow square. <br>
+<span class="correct">1 1 1 Is the red square above the yellow square? "yes"</span><br>
+<span class="correct">1 1 1 Is the yellow square below the red square? "yes"</span><br>
+<span class="correct">1 1 1 Is the yellow square below the red square? "yes"</span><br>
+<span class="correct">1 1 1 Is the red square above the yellow square? "yes"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the left of the red square? "no"</span><br>
+<span class="correct">1 1 1 Is the yellow square above the red square? "no"</span><br>
+<span class="correct">1 1 3 Is the red square to the right of the yellow square? "no"</span><br>
+<span class="correct">1 1 3 Is the red square to the right of the yellow square? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 64 (8 / 8)</div>
+1 3 6 The triangle is to the left of the blue square. <br>
+1 3 6 The red square is to the left of the triangle. <br>
+<span class="correct">1 1 3 Is the red square to the left of the blue square? "yes"</span><br>
+<span class="correct">1 1 3 Is the blue square to the right of the red square? "yes"</span><br>
+<span class="correct">1 1 1 Is the blue square below the red square? "no"</span><br>
+<span class="correct">1 1 1 Is the red square below the blue square? "no"</span><br>
+<span class="correct">1 1 3 Is the red square to the left of the blue square? "yes"</span><br>
+<span class="correct">1 1 1 Is the blue square below the red square? "no"</span><br>
+<span class="correct">1 1 3 Is the blue square to the right of the red square? "yes"</span><br>
+<span class="correct">1 1 3 Is the red square to the left of the blue square? "yes"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 65 (8 / 8)</div>
+1 3 6 The pink rectangle is to the left of the blue square. <br>
+1 3 2 The pink rectangle is below the red square. <br>
+<span class="correct">1 1 3 Is the red square to the left of the blue square? "yes"</span><br>
+<span class="correct">1 1 3 Is the red square to the right of the blue square? "no"</span><br>
+<span class="correct">1 1 3 Is the blue square to the right of the red square? "yes"</span><br>
+<span class="correct">1 1 1 Is the blue square below the red square? "yes"</span><br>
+<span class="correct">1 1 3 Is the red square to the right of the blue square? "no"</span><br>
+<span class="correct">1 1 3 Is the blue square to the left of the red square? "no"</span><br>
+<span class="correct">1 1 1 Is the red square above the blue square? "yes"</span><br>
+<span class="correct">1 1 1 Is the red square below the blue square? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 66 (8 / 8)</div>
+1 3 6 The triangle is to the right of the yellow square. <br>
+1 3 2 The triangle is below the blue square. <br>
+<span class="correct">1 1 1 Is the blue square below the yellow square? "no"</span><br>
+<span class="correct">1 1 1 Is the blue square below the yellow square? "no"</span><br>
+<span class="correct">1 1 1 Is the yellow square above the blue square? "no"</span><br>
+<span class="correct">1 1 1 Is the blue square below the yellow square? "no"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the right of the blue square? "no"</span><br>
+<span class="correct">1 1 1 Is the blue square above the yellow square? "yes"</span><br>
+<span class="correct">1 1 1 Is the blue square below the yellow square? "no"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the right of the blue square? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 67 (8 / 8)</div>
+1 3 6 The pink rectangle is to the left of the blue square. <br>
+1 3 6 The blue square is to the left of the triangle. <br>
+<span class="correct">1 1 1 Is the pink rectangle above the triangle? "no"</span><br>
+<span class="correct">1 1 3 Is the triangle to the left of the pink rectangle? "no"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the left of the triangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the triangle to the right of the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the triangle above the pink rectangle? "no"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle below the triangle? "no"</span><br>
+<span class="correct">1 1 1 Is the triangle above the pink rectangle? "no"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle above the triangle? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 68 (8 / 8)</div>
+1 3 6 The blue square is to the left of the red square. <br>
+1 3 6 The red sphere is to the left of the blue square. <br>
+<span class="correct">1 1 3 Is the red square to the right of the red sphere? "yes"</span><br>
+<span class="correct">1 1 3 Is the red square to the left of the red sphere? "no"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the left of the red square? "yes"</span><br>
+<span class="correct">1 1 3 Is the red square to the right of the red sphere? "yes"</span><br>
+<span class="correct">1 1 1 Is the red square above the red sphere? "no"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the left of the red square? "yes"</span><br>
+<span class="correct">1 1 3 Is the red square to the left of the red sphere? "no"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the left of the red square? "yes"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 69 (8 / 8)</div>
+1 3 2 The pink rectangle is below the blue square. <br>
+1 3 2 The red square is above the blue square. <br>
+<span class="correct">1 1 1 Is the red square above the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle below the red square? "yes"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle above the red square? "no"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle below the red square? "yes"</span><br>
+<span class="correct">1 1 1 Is the red square below the pink rectangle? "no"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle below the red square? "yes"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle above the red square? "no"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the right of the red square? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 70 (8 / 8)</div>
+1 3 6 The red square is to the right of the triangle. <br>
+1 3 2 The red square is above the pink rectangle. <br>
+<span class="correct">1 1 3 Is the triangle to the right of the pink rectangle? "no"</span><br>
+<span class="correct">1 1 3 Is the triangle to the right of the pink rectangle? "no"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle below the triangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the right of the triangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the triangle above the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the triangle to the left of the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle below the triangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the left of the triangle? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 71 (8 / 8)</div>
+1 3 2 The yellow square is above the blue square. <br>
+1 3 6 The yellow square is to the left of the triangle. <br>
+<span class="correct">1 1 3 Is the blue square to the left of the triangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the triangle to the left of the blue square? "no"</span><br>
+<span class="correct">1 1 1 Is the triangle above the blue square? "yes"</span><br>
+<span class="correct">1 1 1 Is the blue square below the triangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the blue square to the right of the triangle? "no"</span><br>
+<span class="correct">1 1 1 Is the triangle above the blue square? "yes"</span><br>
+<span class="correct">1 1 1 Is the triangle above the blue square? "yes"</span><br>
+<span class="correct">1 1 1 Is the triangle above the blue square? "yes"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 72 (8 / 8)</div>
+1 3 6 The yellow square is to the right of the triangle. <br>
+1 3 2 The yellow square is below the blue square. <br>
+<span class="correct">1 1 3 Is the blue square to the right of the triangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the blue square to the left of the triangle? "no"</span><br>
+<span class="correct">1 1 3 Is the blue square to the left of the triangle? "no"</span><br>
+<span class="correct">1 1 1 Is the triangle below the blue square? "yes"</span><br>
+<span class="correct">1 1 3 Is the triangle to the left of the blue square? "yes"</span><br>
+<span class="correct">1 1 1 Is the triangle below the blue square? "yes"</span><br>
+<span class="correct">1 1 3 Is the blue square to the left of the triangle? "no"</span><br>
+<span class="correct">1 1 1 Is the blue square below the triangle? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 73 (8 / 8)</div>
+1 3 2 The pink rectangle is above the red sphere. <br>
+1 3 6 The pink rectangle is to the left of the triangle. <br>
+<span class="correct">1 1 3 Is the red sphere to the right of the triangle? "no"</span><br>
+<span class="correct">1 1 1 Is the red sphere above the triangle? "no"</span><br>
+<span class="correct">1 1 1 Is the red sphere below the triangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the triangle below the red sphere? "no"</span><br>
+<span class="correct">1 1 1 Is the red sphere below the triangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the triangle below the red sphere? "no"</span><br>
+<span class="correct">1 1 3 Is the triangle to the left of the red sphere? "no"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the left of the triangle? "yes"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 74 (8 / 8)</div>
+1 3 2 The yellow square is above the triangle. <br>
+1 3 6 The red sphere is to the left of the yellow square. <br>
+<span class="correct">1 1 1 Is the red sphere below the triangle? "no"</span><br>
+<span class="correct">1 1 1 Is the triangle below the red sphere? "yes"</span><br>
+<span class="correct">1 1 3 Is the triangle to the left of the red sphere? "no"</span><br>
+<span class="correct">1 1 3 Is the triangle to the left of the red sphere? "no"</span><br>
+<span class="correct">1 1 3 Is the triangle to the left of the red sphere? "no"</span><br>
+<span class="correct">1 1 1 Is the triangle below the red sphere? "yes"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the left of the triangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the left of the triangle? "yes"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 75 (8 / 8)</div>
+1 3 6 The triangle is to the left of the red square. <br>
+1 3 2 The red sphere is below the red square. <br>
+<span class="correct">1 1 3 Is the red sphere to the right of the triangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the triangle to the right of the red sphere? "no"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the left of the triangle? "no"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the right of the triangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the red sphere above the triangle? "no"</span><br>
+<span class="correct">1 1 1 Is the triangle above the red sphere? "yes"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the right of the triangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the triangle below the red sphere? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 76 (8 / 8)</div>
+1 3 6 The yellow square is to the right of the blue square. <br>
+1 3 2 The blue square is above the triangle. <br>
+<span class="correct">1 1 1 Is the yellow square above the triangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the triangle to the right of the yellow square? "no"</span><br>
+<span class="correct">1 1 1 Is the yellow square below the triangle? "no"</span><br>
+<span class="correct">1 1 1 Is the yellow square above the triangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the yellow square below the triangle? "no"</span><br>
+<span class="correct">1 1 3 Is the triangle to the right of the yellow square? "no"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the left of the triangle? "no"</span><br>
+<span class="correct">1 1 3 Is the triangle to the right of the yellow square? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 77 (8 / 8)</div>
+1 3 6 The red square is to the left of the triangle. <br>
+1 3 2 The red square is above the yellow square. <br>
+<span class="correct">1 1 3 Is the yellow square to the left of the triangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the right of the triangle? "no"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the right of the triangle? "no"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the left of the triangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the triangle to the left of the yellow square? "no"</span><br>
+<span class="correct">1 1 1 Is the yellow square above the triangle? "no"</span><br>
+<span class="correct">1 1 1 Is the triangle above the yellow square? "yes"</span><br>
+<span class="correct">1 1 1 Is the yellow square above the triangle? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 78 (8 / 8)</div>
+1 3 6 The red sphere is to the right of the yellow square. <br>
+1 3 2 The red sphere is above the red square. <br>
+<span class="correct">1 1 1 Is the red square above the yellow square? "no"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the left of the red square? "yes"</span><br>
+<span class="correct">1 1 1 Is the yellow square below the red square? "no"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the right of the red square? "no"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the left of the red square? "yes"</span><br>
+<span class="correct">1 1 1 Is the red square below the yellow square? "yes"</span><br>
+<span class="correct">1 1 3 Is the red square to the left of the yellow square? "no"</span><br>
+<span class="correct">1 1 1 Is the yellow square below the red square? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 79 (8 / 8)</div>
+1 3 6 The red square is to the left of the triangle. <br>
+1 3 6 The triangle is to the left of the blue square. <br>
+<span class="correct">1 1 3 Is the red square to the right of the blue square? "no"</span><br>
+<span class="correct">1 1 3 Is the red square to the left of the blue square? "yes"</span><br>
+<span class="correct">1 1 1 Is the blue square above the red square? "no"</span><br>
+<span class="correct">1 1 1 Is the red square above the blue square? "no"</span><br>
+<span class="correct">1 1 3 Is the red square to the left of the blue square? "yes"</span><br>
+<span class="correct">1 1 3 Is the red square to the right of the blue square? "no"</span><br>
+<span class="correct">1 1 3 Is the blue square to the left of the red square? "no"</span><br>
+<span class="correct">1 1 1 Is the red square below the blue square? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 80 (8 / 8)</div>
+1 3 2 The triangle is above the pink rectangle. <br>
+1 3 6 The triangle is to the right of the yellow square. <br>
+<span class="correct">1 1 1 Is the pink rectangle below the yellow square? "yes"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle below the yellow square? "yes"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the left of the yellow square? "no"</span><br>
+<span class="correct">1 1 1 Is the yellow square above the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle below the yellow square? "yes"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the left of the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the left of the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the right of the pink rectangle? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 81 (8 / 8)</div>
+1 3 6 The triangle is to the left of the yellow square. <br>
+1 3 6 The red square is to the left of the triangle. <br>
+<span class="correct">1 1 3 Is the red square to the left of the yellow square? "yes"</span><br>
+<span class="correct">1 1 1 Is the red square below the yellow square? "no"</span><br>
+<span class="correct">1 1 1 Is the red square below the yellow square? "no"</span><br>
+<span class="correct">1 1 1 Is the yellow square below the red square? "no"</span><br>
+<span class="correct">1 1 3 Is the red square to the left of the yellow square? "yes"</span><br>
+<span class="correct">1 1 1 Is the yellow square below the red square? "no"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the right of the red square? "yes"</span><br>
+<span class="correct">1 1 3 Is the red square to the left of the yellow square? "yes"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 82 (8 / 8)</div>
+1 3 2 The triangle is below the pink rectangle. <br>
+1 3 6 The triangle is to the left of the red square. <br>
+<span class="correct">1 1 3 Is the pink rectangle to the right of the red square? "no"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the right of the red square? "no"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the left of the red square? "yes"</span><br>
+<span class="correct">1 1 1 Is the red square below the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the right of the red square? "no"</span><br>
+<span class="correct">1 1 3 Is the red square to the right of the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle above the red square? "yes"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the left of the red square? "yes"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 83 (8 / 8)</div>
+1 3 2 The red square is above the red sphere. <br>
+1 3 6 The triangle is to the right of the red sphere. <br>
+<span class="correct">1 1 3 Is the red square to the left of the triangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the red square below the triangle? "no"</span><br>
+<span class="correct">1 1 1 Is the red square above the triangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the red square to the right of the triangle? "no"</span><br>
+<span class="correct">1 1 1 Is the triangle above the red square? "no"</span><br>
+<span class="correct">1 1 1 Is the red square above the triangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the triangle below the red square? "yes"</span><br>
+<span class="correct">1 1 1 Is the triangle below the red square? "yes"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 84 (8 / 8)</div>
+1 3 2 The blue square is above the red square. <br>
+1 3 6 The red square is to the left of the triangle. <br>
+<span class="correct">1 1 3 Is the triangle to the right of the blue square? "yes"</span><br>
+<span class="correct">1 1 1 Is the triangle above the blue square? "no"</span><br>
+<span class="correct">1 1 3 Is the triangle to the right of the blue square? "yes"</span><br>
+<span class="correct">1 1 3 Is the triangle to the left of the blue square? "no"</span><br>
+<span class="correct">1 1 3 Is the blue square to the left of the triangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the blue square to the right of the triangle? "no"</span><br>
+<span class="correct">1 1 3 Is the triangle to the right of the blue square? "yes"</span><br>
+<span class="correct">1 1 1 Is the blue square above the triangle? "yes"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 85 (8 / 8)</div>
+1 3 6 The red square is to the left of the blue square. <br>
+1 3 2 The blue square is above the red sphere. <br>
+<span class="correct">1 1 1 Is the red sphere below the red square? "yes"</span><br>
+<span class="correct">1 1 3 Is the red square to the right of the red sphere? "no"</span><br>
+<span class="correct">1 1 1 Is the red sphere above the red square? "no"</span><br>
+<span class="correct">1 1 1 Is the red square above the red sphere? "yes"</span><br>
+<span class="correct">1 1 1 Is the red sphere below the red square? "yes"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the right of the red square? "yes"</span><br>
+<span class="correct">1 1 1 Is the red sphere above the red square? "no"</span><br>
+<span class="correct">1 1 3 Is the red square to the left of the red sphere? "yes"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 86 (8 / 8)</div>
+1 3 6 The yellow square is to the right of the blue square. <br>
+1 3 2 The yellow square is below the red square. <br>
+<span class="correct">1 1 3 Is the blue square to the right of the red square? "no"</span><br>
+<span class="correct">1 1 1 Is the red square above the blue square? "yes"</span><br>
+<span class="correct">1 1 1 Is the blue square below the red square? "yes"</span><br>
+<span class="correct">1 1 1 Is the blue square above the red square? "no"</span><br>
+<span class="correct">1 1 1 Is the red square above the blue square? "yes"</span><br>
+<span class="correct">1 1 3 Is the red square to the right of the blue square? "yes"</span><br>
+<span class="correct">1 1 1 Is the blue square below the red square? "yes"</span><br>
+<span class="correct">1 1 1 Is the blue square below the red square? "yes"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 87 (8 / 8)</div>
+1 3 6 The pink rectangle is to the left of the red square. <br>
+1 3 6 The red square is to the left of the blue square. <br>
+<span class="correct">1 1 3 Is the pink rectangle to the left of the blue square? "yes"</span><br>
+<span class="correct">1 1 3 Is the blue square to the left of the pink rectangle? "no"</span><br>
+<span class="correct">1 1 3 Is the blue square to the right of the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the blue square to the right of the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle above the blue square? "no"</span><br>
+<span class="correct">1 1 1 Is the blue square above the pink rectangle? "no"</span><br>
+<span class="correct">1 1 3 Is the blue square to the right of the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the left of the blue square? "yes"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 88 (8 / 8)</div>
+1 3 6 The red sphere is to the right of the yellow square. <br>
+1 3 2 The red sphere is above the pink rectangle. <br>
+<span class="correct">1 1 3 Is the yellow square to the right of the pink rectangle? "no"</span><br>
+<span class="correct">1 1 1 Is the yellow square below the pink rectangle? "no"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle above the yellow square? "no"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle above the yellow square? "no"</span><br>
+<span class="correct">1 1 1 Is the yellow square below the pink rectangle? "no"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the right of the pink rectangle? "no"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the right of the pink rectangle? "no"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the left of the pink rectangle? "yes"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 89 (8 / 8)</div>
+1 3 6 The red sphere is to the right of the yellow square. <br>
+1 3 2 The yellow square is below the pink rectangle. <br>
+<span class="correct">1 1 3 Is the pink rectangle to the right of the red sphere? "no"</span><br>
+<span class="correct">1 1 1 Is the red sphere above the pink rectangle? "no"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle below the red sphere? "no"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle above the red sphere? "yes"</span><br>
+<span class="correct">1 1 1 Is the red sphere below the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the red sphere above the pink rectangle? "no"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the left of the pink rectangle? "no"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the right of the red sphere? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 90 (8 / 8)</div>
+1 3 2 The blue square is above the pink rectangle. <br>
+1 3 6 The pink rectangle is to the left of the red sphere. <br>
+<span class="correct">1 1 3 Is the red sphere to the left of the blue square? "no"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the right of the blue square? "yes"</span><br>
+<span class="correct">1 1 1 Is the blue square above the red sphere? "yes"</span><br>
+<span class="correct">1 1 1 Is the blue square above the red sphere? "yes"</span><br>
+<span class="correct">1 1 3 Is the blue square to the left of the red sphere? "yes"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the right of the blue square? "yes"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the right of the blue square? "yes"</span><br>
+<span class="correct">1 1 3 Is the blue square to the left of the red sphere? "yes"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 91 (8 / 8)</div>
+1 3 2 The yellow square is below the red square. <br>
+1 3 6 The yellow square is to the left of the red sphere. <br>
+<span class="correct">1 1 3 Is the red square to the right of the red sphere? "no"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the right of the red square? "yes"</span><br>
+<span class="correct">1 1 1 Is the red sphere above the red square? "no"</span><br>
+<span class="correct">1 1 3 Is the red square to the left of the red sphere? "yes"</span><br>
+<span class="correct">1 1 3 Is the red square to the left of the red sphere? "yes"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the right of the red square? "yes"</span><br>
+<span class="correct">1 1 3 Is the red square to the right of the red sphere? "no"</span><br>
+<span class="correct">1 1 1 Is the red sphere above the red square? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 92 (8 / 8)</div>
+1 3 6 The red square is to the right of the triangle. <br>
+1 3 2 The pink rectangle is below the red square. <br>
+<span class="correct">1 1 3 Is the triangle to the left of the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the triangle to the right of the pink rectangle? "no"</span><br>
+<span class="correct">1 1 1 Is the triangle below the pink rectangle? "no"</span><br>
+<span class="correct">1 1 1 Is the triangle above the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the right of the triangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle below the triangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the triangle to the right of the pink rectangle? "no"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the right of the triangle? "yes"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 93 (8 / 8)</div>
+1 3 2 The red sphere is above the blue square. <br>
+1 3 6 The red sphere is to the right of the yellow square. <br>
+<span class="correct">1 1 1 Is the yellow square below the blue square? "no"</span><br>
+<span class="correct">1 1 3 Is the blue square to the left of the yellow square? "no"</span><br>
+<span class="correct">1 1 1 Is the yellow square above the blue square? "yes"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the right of the blue square? "no"</span><br>
+<span class="correct">1 1 1 Is the yellow square above the blue square? "yes"</span><br>
+<span class="correct">1 1 3 Is the blue square to the left of the yellow square? "no"</span><br>
+<span class="correct">1 1 3 Is the blue square to the right of the yellow square? "yes"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the right of the blue square? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 94 (8 / 8)</div>
+1 3 2 The pink rectangle is below the yellow square. <br>
+1 3 6 The pink rectangle is to the right of the triangle. <br>
+<span class="correct">1 1 1 Is the yellow square above the triangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the triangle to the right of the yellow square? "no"</span><br>
+<span class="correct">1 1 3 Is the triangle to the left of the yellow square? "yes"</span><br>
+<span class="correct">1 1 3 Is the triangle to the left of the yellow square? "yes"</span><br>
+<span class="correct">1 1 3 Is the triangle to the right of the yellow square? "no"</span><br>
+<span class="correct">1 1 3 Is the triangle to the left of the yellow square? "yes"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the left of the triangle? "no"</span><br>
+<span class="correct">1 1 3 Is the triangle to the right of the yellow square? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 95 (8 / 8)</div>
+1 3 6 The blue square is to the left of the triangle. <br>
+1 3 2 The blue square is below the red square. <br>
+<span class="correct">1 1 3 Is the triangle to the right of the red square? "yes"</span><br>
+<span class="correct">1 1 3 Is the red square to the left of the triangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the red square above the triangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the red square above the triangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the triangle to the left of the red square? "no"</span><br>
+<span class="correct">1 1 3 Is the triangle to the left of the red square? "no"</span><br>
+<span class="correct">1 1 1 Is the triangle below the red square? "yes"</span><br>
+<span class="correct">1 1 1 Is the triangle above the red square? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 96 (8 / 8)</div>
+1 3 2 The red square is below the pink rectangle. <br>
+1 3 2 The pink rectangle is below the red sphere. <br>
+<span class="correct">1 1 1 Is the red square below the red sphere? "yes"</span><br>
+<span class="correct">1 1 1 Is the red square below the red sphere? "yes"</span><br>
+<span class="correct">1 1 3 Is the red square to the left of the red sphere? "no"</span><br>
+<span class="correct">1 1 1 Is the red sphere below the red square? "no"</span><br>
+<span class="correct">1 1 1 Is the red square below the red sphere? "yes"</span><br>
+<span class="correct">1 1 1 Is the red square above the red sphere? "no"</span><br>
+<span class="correct">1 1 1 Is the red square below the red sphere? "yes"</span><br>
+<span class="correct">1 1 1 Is the red square below the red sphere? "yes"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 97 (8 / 8)</div>
+1 3 2 The triangle is below the red sphere. <br>
+1 3 6 The red square is to the left of the triangle. <br>
+<span class="correct">1 1 3 Is the red sphere to the left of the red square? "no"</span><br>
+<span class="correct">1 1 3 Is the red square to the left of the red sphere? "yes"</span><br>
+<span class="correct">1 1 1 Is the red sphere above the red square? "yes"</span><br>
+<span class="correct">1 1 3 Is the red square to the left of the red sphere? "yes"</span><br>
+<span class="correct">1 1 1 Is the red sphere below the red square? "no"</span><br>
+<span class="correct">1 1 1 Is the red sphere above the red square? "yes"</span><br>
+<span class="correct">1 1 1 Is the red sphere above the red square? "yes"</span><br>
+<span class="correct">1 1 3 Is the red square to the right of the red sphere? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 98 (8 / 8)</div>
+1 3 2 The blue square is above the pink rectangle. <br>
+1 3 6 The triangle is to the left of the blue square. <br>
+<span class="correct">1 1 3 Is the triangle to the right of the pink rectangle? "no"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the right of the triangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle above the triangle? "no"</span><br>
+<span class="correct">1 1 1 Is the triangle below the pink rectangle? "no"</span><br>
+<span class="correct">1 1 3 Is the triangle to the right of the pink rectangle? "no"</span><br>
+<span class="correct">1 1 3 Is the triangle to the left of the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the triangle below the pink rectangle? "no"</span><br>
+<span class="correct">1 1 3 Is the triangle to the right of the pink rectangle? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 99 (8 / 8)</div>
+1 3 2 The red square is below the yellow square. <br>
+1 3 2 The pink rectangle is above the yellow square. <br>
+<span class="correct">1 1 1 Is the red square below the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the red square below the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the red square below the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle below the red square? "no"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle below the red square? "no"</span><br>
+<span class="correct">1 1 3 Is the red square to the right of the pink rectangle? "no"</span><br>
+<span class="correct">1 1 1 Is the red square below the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle above the red square? "yes"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 100 (8 / 8)</div>
+1 3 6 The red square is to the left of the pink rectangle. <br>
+1 3 2 The red square is below the blue square. <br>
+<span class="correct">1 1 1 Is the pink rectangle below the blue square? "yes"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle above the blue square? "no"</span><br>
+<span class="correct">1 1 1 Is the blue square above the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle below the blue square? "yes"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the left of the blue square? "no"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the left of the blue square? "no"</span><br>
+<span class="correct">1 1 3 Is the blue square to the left of the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the blue square below the pink rectangle? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 101 (8 / 8)</div>
+1 3 6 The triangle is to the left of the blue square. <br>
+1 3 2 The blue square is above the red square. <br>
+<span class="correct">1 1 3 Is the triangle to the right of the red square? "no"</span><br>
+<span class="correct">1 1 3 Is the red square to the right of the triangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the red square above the triangle? "no"</span><br>
+<span class="correct">1 1 3 Is the red square to the right of the triangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the triangle below the red square? "no"</span><br>
+<span class="correct">1 1 3 Is the red square to the left of the triangle? "no"</span><br>
+<span class="correct">1 1 3 Is the red square to the right of the triangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the red square to the left of the triangle? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 102 (8 / 8)</div>
+1 3 6 The triangle is to the left of the red square. <br>
+1 3 2 The pink rectangle is below the triangle. <br>
+<span class="correct">1 1 3 Is the red square to the left of the pink rectangle? "no"</span><br>
+<span class="correct">1 1 1 Is the red square above the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the red square to the right of the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the left of the red square? "yes"</span><br>
+<span class="correct">1 1 1 Is the red square above the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the right of the red square? "no"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle above the red square? "no"</span><br>
+<span class="correct">1 1 3 Is the red square to the right of the pink rectangle? "yes"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 103 (8 / 8)</div>
+1 3 2 The yellow square is above the pink rectangle. <br>
+1 3 6 The triangle is to the right of the pink rectangle. <br>
+<span class="correct">1 1 3 Is the yellow square to the left of the triangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the right of the triangle? "no"</span><br>
+<span class="correct">1 1 1 Is the yellow square above the triangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the triangle to the right of the yellow square? "yes"</span><br>
+<span class="correct">1 1 3 Is the triangle to the left of the yellow square? "no"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the left of the triangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the triangle below the yellow square? "yes"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the right of the triangle? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 104 (8 / 8)</div>
+1 3 2 The blue square is above the pink rectangle. <br>
+1 3 2 The blue square is below the red square. <br>
+<span class="correct">1 1 1 Is the red square above the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the red square to the right of the pink rectangle? "no"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle below the red square? "yes"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle below the red square? "yes"</span><br>
+<span class="correct">1 1 1 Is the red square above the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle below the red square? "yes"</span><br>
+<span class="correct">1 1 1 Is the red square above the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle above the red square? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 105 (8 / 8)</div>
+1 3 6 The yellow square is to the right of the red square. <br>
+1 3 2 The yellow square is below the red sphere. <br>
+<span class="correct">1 1 3 Is the red sphere to the right of the red square? "yes"</span><br>
+<span class="correct">1 1 1 Is the red square above the red sphere? "no"</span><br>
+<span class="correct">1 1 1 Is the red square below the red sphere? "yes"</span><br>
+<span class="correct">1 1 1 Is the red square above the red sphere? "no"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the left of the red square? "no"</span><br>
+<span class="correct">1 1 1 Is the red square below the red sphere? "yes"</span><br>
+<span class="correct">1 1 1 Is the red sphere below the red square? "no"</span><br>
+<span class="correct">1 1 1 Is the red square below the red sphere? "yes"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 106 (8 / 8)</div>
+1 3 2 The triangle is above the red sphere. <br>
+1 3 6 The blue square is to the left of the triangle. <br>
+<span class="correct">1 1 3 Is the red sphere to the left of the blue square? "no"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the left of the blue square? "no"</span><br>
+<span class="correct">1 1 1 Is the red sphere above the blue square? "no"</span><br>
+<span class="correct">1 1 1 Is the blue square below the red sphere? "no"</span><br>
+<span class="correct">1 1 1 Is the red sphere below the blue square? "yes"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the left of the blue square? "no"</span><br>
+<span class="correct">1 1 1 Is the blue square below the red sphere? "no"</span><br>
+<span class="correct">1 1 1 Is the red sphere above the blue square? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 107 (8 / 8)</div>
+1 3 6 The blue square is to the left of the red square. <br>
+1 3 2 The blue square is above the pink rectangle. <br>
+<span class="correct">1 1 3 Is the pink rectangle to the left of the red square? "yes"</span><br>
+<span class="correct">1 1 3 Is the red square to the right of the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the red square to the left of the pink rectangle? "no"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the left of the red square? "yes"</span><br>
+<span class="correct">1 1 3 Is the red square to the right of the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the left of the red square? "yes"</span><br>
+<span class="correct">1 1 3 Is the red square to the left of the pink rectangle? "no"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle below the red square? "yes"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 108 (8 / 8)</div>
+1 3 6 The red square is to the left of the pink rectangle. <br>
+1 3 6 The red square is to the right of the red sphere. <br>
+<span class="correct">1 1 1 Is the pink rectangle below the red sphere? "no"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the left of the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the red sphere above the pink rectangle? "no"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the right of the red sphere? "yes"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the left of the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the right of the red sphere? "yes"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the right of the red sphere? "yes"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the left of the pink rectangle? "yes"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 109 (8 / 8)</div>
+1 3 2 The pink rectangle is above the red square. <br>
+1 3 6 The pink rectangle is to the right of the blue square. <br>
+<span class="correct">1 1 3 Is the blue square to the left of the red square? "yes"</span><br>
+<span class="correct">1 1 1 Is the red square above the blue square? "no"</span><br>
+<span class="correct">1 1 3 Is the blue square to the right of the red square? "no"</span><br>
+<span class="correct">1 1 3 Is the red square to the right of the blue square? "yes"</span><br>
+<span class="correct">1 1 3 Is the blue square to the right of the red square? "no"</span><br>
+<span class="correct">1 1 1 Is the red square below the blue square? "yes"</span><br>
+<span class="correct">1 1 1 Is the red square above the blue square? "no"</span><br>
+<span class="correct">1 1 3 Is the blue square to the right of the red square? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 110 (8 / 8)</div>
+1 3 2 The yellow square is below the pink rectangle. <br>
+1 3 2 The pink rectangle is below the red square. <br>
+<span class="correct">1 1 1 Is the yellow square above the red square? "no"</span><br>
+<span class="correct">1 1 1 Is the yellow square below the red square? "yes"</span><br>
+<span class="correct">1 1 1 Is the yellow square below the red square? "yes"</span><br>
+<span class="correct">1 1 1 Is the red square below the yellow square? "no"</span><br>
+<span class="correct">1 1 1 Is the yellow square above the red square? "no"</span><br>
+<span class="correct">1 1 1 Is the yellow square above the red square? "no"</span><br>
+<span class="correct">1 1 1 Is the red square above the yellow square? "yes"</span><br>
+<span class="correct">1 1 1 Is the red square above the yellow square? "yes"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 111 (8 / 8)</div>
+1 3 2 The red square is above the triangle. <br>
+1 3 2 The red square is below the red sphere. <br>
+<span class="correct">1 1 1 Is the red sphere above the triangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the triangle below the red sphere? "yes"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the left of the triangle? "no"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the left of the triangle? "no"</span><br>
+<span class="correct">1 1 1 Is the triangle below the red sphere? "yes"</span><br>
+<span class="correct">1 1 1 Is the triangle below the red sphere? "yes"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the left of the triangle? "no"</span><br>
+<span class="correct">1 1 3 Is the triangle to the right of the red sphere? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 112 (8 / 8)</div>
+1 3 6 The red sphere is to the left of the triangle. <br>
+1 3 6 The triangle is to the left of the red square. <br>
+<span class="correct">1 1 3 Is the red square to the right of the red sphere? "yes"</span><br>
+<span class="correct">1 1 1 Is the red square above the red sphere? "no"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the left of the red square? "yes"</span><br>
+<span class="correct">1 1 3 Is the red square to the right of the red sphere? "yes"</span><br>
+<span class="correct">1 1 1 Is the red square below the red sphere? "no"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the left of the red square? "yes"</span><br>
+<span class="correct">1 1 3 Is the red square to the right of the red sphere? "yes"</span><br>
+<span class="correct">1 1 3 Is the red square to the right of the red sphere? "yes"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 113 (8 / 8)</div>
+1 3 2 The pink rectangle is above the red square. <br>
+1 3 6 The red square is to the right of the blue square. <br>
+<span class="correct">1 1 1 Is the pink rectangle below the blue square? "no"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle above the blue square? "yes"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle below the blue square? "no"</span><br>
+<span class="correct">1 1 1 Is the blue square below the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the blue square above the pink rectangle? "no"</span><br>
+<span class="correct">1 1 1 Is the blue square above the pink rectangle? "no"</span><br>
+<span class="correct">1 1 1 Is the blue square below the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the blue square to the right of the pink rectangle? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 114 (8 / 8)</div>
+1 3 2 The pink rectangle is above the red sphere. <br>
+1 3 6 The pink rectangle is to the right of the yellow square. <br>
+<span class="correct">1 1 3 Is the red sphere to the left of the yellow square? "no"</span><br>
+<span class="correct">1 1 1 Is the yellow square below the red sphere? "no"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the right of the yellow square? "yes"</span><br>
+<span class="correct">1 1 1 Is the yellow square below the red sphere? "no"</span><br>
+<span class="correct">1 1 1 Is the red sphere above the yellow square? "no"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the left of the red sphere? "yes"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the right of the yellow square? "yes"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the right of the red sphere? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 115 (8 / 8)</div>
+1 3 6 The yellow square is to the right of the red sphere. <br>
+1 3 2 The red sphere is above the blue square. <br>
+<span class="correct">1 1 1 Is the yellow square below the blue square? "no"</span><br>
+<span class="correct">1 1 3 Is the blue square to the left of the yellow square? "yes"</span><br>
+<span class="correct">1 1 1 Is the yellow square below the blue square? "no"</span><br>
+<span class="correct">1 1 3 Is the blue square to the right of the yellow square? "no"</span><br>
+<span class="correct">1 1 1 Is the blue square above the yellow square? "no"</span><br>
+<span class="correct">1 1 1 Is the yellow square below the blue square? "no"</span><br>
+<span class="correct">1 1 3 Is the blue square to the right of the yellow square? "no"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the left of the blue square? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 116 (8 / 8)</div>
+1 3 2 The pink rectangle is above the triangle. <br>
+1 3 6 The triangle is to the right of the blue square. <br>
+<span class="correct">1 1 3 Is the pink rectangle to the left of the blue square? "no"</span><br>
+<span class="correct">1 1 3 Is the blue square to the left of the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the blue square above the pink rectangle? "no"</span><br>
+<span class="correct">1 1 3 Is the blue square to the left of the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle above the blue square? "yes"</span><br>
+<span class="correct">1 1 1 Is the blue square below the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the blue square above the pink rectangle? "no"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the right of the blue square? "yes"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 117 (8 / 8)</div>
+1 3 6 The yellow square is to the right of the pink rectangle. <br>
+1 3 2 The red sphere is below the yellow square. <br>
+<span class="correct">1 1 3 Is the pink rectangle to the right of the red sphere? "no"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the right of the red sphere? "no"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle below the red sphere? "no"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle below the red sphere? "no"</span><br>
+<span class="correct">1 1 1 Is the red sphere above the pink rectangle? "no"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the left of the pink rectangle? "no"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the left of the pink rectangle? "no"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the left of the pink rectangle? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 118 (8 / 8)</div>
+1 3 6 The triangle is to the left of the yellow square. <br>
+1 3 2 The triangle is below the red sphere. <br>
+<span class="correct">1 1 1 Is the red sphere below the yellow square? "no"</span><br>
+<span class="correct">1 1 1 Is the red sphere above the yellow square? "yes"</span><br>
+<span class="correct">1 1 1 Is the red sphere above the yellow square? "yes"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the right of the yellow square? "no"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the left of the yellow square? "yes"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the left of the red sphere? "no"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the left of the red sphere? "no"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the right of the red sphere? "yes"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 119 (8 / 8)</div>
+1 3 2 The blue square is above the yellow square. <br>
+1 3 2 The triangle is below the yellow square. <br>
+<span class="correct">1 1 3 Is the blue square to the right of the triangle? "no"</span><br>
+<span class="correct">1 1 1 Is the blue square below the triangle? "no"</span><br>
+<span class="correct">1 1 1 Is the blue square above the triangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the triangle below the blue square? "yes"</span><br>
+<span class="correct">1 1 3 Is the blue square to the right of the triangle? "no"</span><br>
+<span class="correct">1 1 1 Is the blue square above the triangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the triangle below the blue square? "yes"</span><br>
+<span class="correct">1 1 1 Is the triangle above the blue square? "no"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 120 (8 / 8)</div>
+1 3 6 The pink rectangle is to the left of the yellow square. <br>
+1 3 2 The pink rectangle is above the triangle. <br>
+<span class="correct">1 1 3 Is the triangle to the left of the yellow square? "yes"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the left of the triangle? "no"</span><br>
+<span class="correct">1 1 1 Is the triangle below the yellow square? "yes"</span><br>
+<span class="correct">1 1 1 Is the triangle below the yellow square? "yes"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the right of the triangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the right of the triangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the yellow square to the right of the triangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the triangle to the left of the yellow square? "yes"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 121 (8 / 8)</div>
+1 3 2 The red square is below the red sphere. <br>
+1 3 2 The red sphere is below the triangle. <br>
+<span class="correct">1 1 1 Is the triangle above the red square? "yes"</span><br>
+<span class="correct">1 1 3 Is the triangle to the right of the red square? "no"</span><br>
+<span class="correct">1 1 3 Is the triangle to the left of the red square? "no"</span><br>
+<span class="correct">1 1 3 Is the red square to the left of the triangle? "no"</span><br>
+<span class="correct">1 1 1 Is the red square below the triangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the red square below the triangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the triangle below the red square? "no"</span><br>
+<span class="correct">1 1 1 Is the triangle above the red square? "yes"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 122 (8 / 8)</div>
+1 3 2 The blue square is above the pink rectangle. <br>
+1 3 2 The pink rectangle is above the red sphere. <br>
+<span class="correct">1 1 1 Is the blue square above the red sphere? "yes"</span><br>
+<span class="correct">1 1 3 Is the blue square to the left of the red sphere? "no"</span><br>
+<span class="correct">1 1 1 Is the red sphere below the blue square? "yes"</span><br>
+<span class="correct">1 1 3 Is the red sphere to the right of the blue square? "no"</span><br>
+<span class="correct">1 1 1 Is the red sphere below the blue square? "yes"</span><br>
+<span class="correct">1 1 1 Is the red sphere below the blue square? "yes"</span><br>
+<span class="correct">1 1 1 Is the red sphere below the blue square? "yes"</span><br>
+<span class="correct">1 1 1 Is the blue square above the red sphere? "yes"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 123 (8 / 8)</div>
+1 3 2 The yellow square is below the red square. <br>
+1 3 2 The pink rectangle is below the yellow square. <br>
+<span class="correct">1 1 1 Is the red square above the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 3 Is the pink rectangle to the left of the red square? "no"</span><br>
+<span class="correct">1 1 3 Is the red square to the right of the pink rectangle? "no"</span><br>
+<span class="correct">1 1 1 Is the red square above the pink rectangle? "yes"</span><br>
+<span class="correct">1 1 1 Is the red square below the pink rectangle? "no"</span><br>
+<span class="correct">1 1 3 Is the red square to the left of the pink rectangle? "no"</span><br>
+<span class="correct">1 1 3 Is the red square to the right of the pink rectangle? "no"</span><br>
+<span class="correct">1 1 1 Is the pink rectangle below the red square? "yes"</span><br>
+
+        </div>
+
+        <div class="episode">
+            <div class="episode_title">Episode 124 (8 / 8)</div>
+1 3 6 The yellow square is to the left of the blue square. <br>
+1 3 2 The blue square is above the red square. <br>
+<span class="correct">1 1 3 Is the yellow square to the left of the red square? "yes"</span><br>
+<span class="correct">1 1 1 Is the red square above the yellow square? "no"</span><br>
+<span class="correct">1 1 3 Is the red square to the right of the yellow square? "yes"</span><br>
+<span class="correct">1 1 1 Is the red square below the yellow square? "yes"</span><br>
+<span class="correct">1 1 3 Is the red square to the left of the yellow square? "no"</span><br>
+<span class="correct">1 1 1 Is the red square above the yellow square? "no"</span><br>
+<span class="correct">1 1 1 Is the yellow square above the red square? "yes"</span><br>
+<span class="correct">1 1 1 Is the red square above the yellow square? "no"</span><br>
+
+        </div>
+
+    </div>
+</body>
+</html>

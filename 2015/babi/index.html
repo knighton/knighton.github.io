@@ -1,0 +1,376 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style type="text/css">
+body {
+    background: #69c;
+}
+#background {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: -1;
+}
+.stretch {
+    width: 100%;
+    height: 100%;
+}
+#page {
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    width: 700px;
+}
+.episode {
+    margin: 10px;
+    padding: 10px;
+    background: white;
+    border: 2px solid white;
+    border-radius: 2px;
+}
+.episode_title {
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.hl {
+    background: yellow;
+}
+.hl2 {
+    background: #fda;
+}
+.hl3 {
+    background: #8f8;
+}
+.suspicious {
+    background: #ddd;
+}
+h1 {
+    text-align: center;
+}
+td {
+    padding: 5px;
+}
+a {
+    text-decoration: none;
+}
+li {
+    padding: 5px;
+}
+.code {
+    line-height: 150%;
+    margin-left: 50px;
+    font-family: monospace;
+}
+    </style>
+</head>
+<body>
+    <div id="background">
+        <img src="doc.jpg" class="stretch" alt=""/>
+    </div>
+    <div id="page">
+        <div class="episode">
+            <h1>bAbi</h1>
+        <div class="episode">
+            I thought it would be clever to solve bAbi, with the intention of creating my own dataset.<br>
+            <br>
+            So with a deep interest in the subject in general and why my code was getting answers wrong in particular, I present a few minor nits to pick with the dataset (and a big one with task 2).<br>
+            <br>
+            While most of these issues are rare, because this is synthetic data, errors are more serious, as they suggest problems with the underlying model.<br>
+            <br>
+            Version of bAbi used: 1.2.<br>
+            <br>
+            Links:<br>
+            <ul>
+                <li><a href="http://fb.ai/babi">fb.ai/babi</a></li>
+                <li>Jason Weston, Antoine Bordes, Sumit Chopra, Tomas Mikolov, Alexander M. Rush, <a href="http://arxiv.org/abs/1502.05698">"Towards AI-Complete Question Answering: A Set of Prerequisite Toy Tasks"</a>, arXiv:1502.05698 [cs.AI].</li>
+                <li>Sainbayar Sukhbaatar, Arthur Szlam, Jason Weston, Rob Fergus, <a href="http://arxiv.org/abs/1503.08895">"End-To-End Memory Networks"</a>, arXiv:1503.08895 [cs.NE].</li>
+            </ul>
+        </div>
+        <hr>
+        <div class="episode">
+            <div class="episode_title">Accuracy</div>
+            <table>
+                <tbody>
+                    <tr>
+                        <td style="text-align: right">1.</td>
+                        <td style="text-align: right">100.00%</td>
+                        <td></td>
+                        <td><a href="file:///home/frak/dev/panoptes/data/evaluation/babi/01_single-supporting-fact.html">single supporting fact</a></td>
+                    </tr>
+                
+                    <tr>
+                        <td style="text-align: right">2.</td>
+                        <td style="text-align: right">77.09%</td>
+                        <td><a href="#task2">?</a></td>
+                        <td><a href="file:///home/frak/dev/panoptes/data/evaluation/babi/02_two-supporting-facts.html">two supporting facts</a></td>
+                    </tr>
+                
+                    <tr>
+                        <td style="text-align: right">3.</td>
+                        <td style="text-align: right">99.40%</td>
+                        <td><a href="#task3">?</a></td>
+                        <td><a href="file:///home/frak/dev/panoptes/data/evaluation/babi/03_three-supporting-facts.html">three supporting facts</a></td>
+                    </tr>
+                
+                    <tr>
+                        <td style="text-align: right">4.</td>
+                        <td style="text-align: right">100.00%</td>
+                        <td></td>
+                        <td><a href="file:///home/frak/dev/panoptes/data/evaluation/babi/04_two-arg-relations.html">two arg relations</a></td>
+                    </tr>
+                
+                    <tr>
+                        <td style="text-align: right">5.</td>
+                        <td style="text-align: right">99.80%</td>
+                        <td><a href="#task5">?</a></td>
+                        <td><a href="file:///home/frak/dev/panoptes/data/evaluation/babi/05_three-arg-relations.html">three arg relations</a></td>
+                    </tr>
+                
+                    <tr>
+                        <td style="text-align: right">6.</td>
+                        <td style="text-align: right">100.00%</td>
+                        <td></td>
+                        <td><a href="file:///home/frak/dev/panoptes/data/evaluation/babi/06_yes-no-questions.html">yes no questions</a></td>
+                    </tr>
+                
+                    <tr>
+                        <td style="text-align: right">7.</td>
+                        <td style="text-align: right">100.00%</td>
+                        <td></td>
+                        <td><a href="file:///home/frak/dev/panoptes/data/evaluation/babi/07_counting.html">counting</a></td>
+                    </tr>
+                
+                    <tr>
+                        <td style="text-align: right">8.</td>
+                        <td style="text-align: right">99.60%</td>
+                        <td><a href="#task8">?</a></td>
+                        <td><a href="file:///home/frak/dev/panoptes/data/evaluation/babi/08_lists-sets.html">lists sets</a></td>
+                    </tr>
+                
+                    <tr>
+                        <td style="text-align: right">9.</td>
+                        <td style="text-align: right">100.00%</td>
+                        <td></td>
+                        <td><a href="file:///home/frak/dev/panoptes/data/evaluation/babi/09_simple-negation.html">simple negation</a></td>
+                    </tr>
+                
+                    <tr>
+                        <td style="text-align: right">10.</td>
+                        <td style="text-align: right">100.00%</td>
+                        <td></td>
+                        <td><a href="file:///home/frak/dev/panoptes/data/evaluation/babi/10_indefinite-knowledge.html">indefinite knowledge</a></td>
+                    </tr>
+                
+                    <tr>
+                        <td style="text-align: right">11.</td>
+                        <td style="text-align: right">100.00%</td>
+                        <td></td>
+                        <td><a href="file:///home/frak/dev/panoptes/data/evaluation/babi/11_basic-coreference.html">basic coreference</a></td>
+                    </tr>
+                
+                    <tr>
+                        <td style="text-align: right">12.</td>
+                        <td style="text-align: right">100.00%</td>
+                        <td></td>
+                        <td><a href="file:///home/frak/dev/panoptes/data/evaluation/babi/12_conjunction.html">conjunction</a></td>
+                    </tr>
+                
+                    <tr>
+                        <td style="text-align: right">13.</td>
+                        <td style="text-align: right">100.00%</td>
+                        <td></td>
+                        <td><a href="file:///home/frak/dev/panoptes/data/evaluation/babi/13_compound-coreference.html">compound coreference</a></td>
+                    </tr>
+                
+                    <tr>
+                        <td style="text-align: right">14.</td>
+                        <td style="text-align: right">100.00%</td>
+                        <td></td>
+                        <td><a href="file:///home/frak/dev/panoptes/data/evaluation/babi/14_time-reasoning.html">time reasoning</a></td>
+                    </tr>
+                
+                    <tr>
+                        <td style="text-align: right">15.</td>
+                        <td style="text-align: right">100.00%</td>
+                        <td></td>
+                        <td><a href="file:///home/frak/dev/panoptes/data/evaluation/babi/15_basic-deduction.html">basic deduction</a></td>
+                    </tr>
+                
+                    <tr>
+                        <td style="text-align: right">16.</td>
+                        <td style="text-align: right">97.30%</td>
+                        <td><a href="#task16">?</a></td>
+                        <td><a href="file:///home/frak/dev/panoptes/data/evaluation/babi/16_basic-induction.html">basic induction</a></td>
+                    </tr>
+                
+                    <tr>
+                        <td style="text-align: right">17.</td>
+                        <td style="text-align: right">100.00%</td>
+                        <td></td>
+                        <td><a href="file:///home/frak/dev/panoptes/data/evaluation/babi/17_positional-reasoning.html">positional reasoning</a></td>
+                    </tr>
+                
+                    <tr>
+                        <td style="text-align: right">18.</td>
+                        <td style="text-align: right">100.00%</td>
+                        <td></td>
+                        <td><a href="file:///home/frak/dev/panoptes/data/evaluation/babi/18_size-reasoning.html">size reasoning</a></td>
+                    </tr>
+                
+                    <tr>
+                        <td style="text-align: right">19.</td>
+                        <td style="text-align: right">100.00%</td>
+                        <td></td>
+                        <td><a href="file:///home/frak/dev/panoptes/data/evaluation/babi/19_path-finding.html">path finding</a></td>
+                    </tr>
+                
+                    <tr>
+                        <td style="text-align: right">20.</td>
+                        <td style="text-align: right">0.00%</td>
+                        <td></td>
+                        <td><a href="file:///home/frak/dev/panoptes/data/evaluation/babi/20_agents-motivations.html">agents motivations</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <hr>
+        <div class="episode">
+            <div class="episode_title"><a name="task2">Task 2 Two supporting facts</a></div>
+            Lots of coreference errors.  I haven't checked each one, but I think about a quarter of the test answers are wrong in this manner.<br>
+            <br>
+            <div class="code">
+                1 Mary journeyed to the bathroom.<br>
+                2 Sandra went to the garden.<br>
+                3 Daniel went back to the garden.<br>
+                4 Daniel went to the <span class="hl">office</span>.<br>
+                5 Sandra grabbed the milk <span class="hl">there</span>.<br>
+                6 Sandra put down the milk <span class="hl">there</span>.<br>
+                <span class="suspicious">7 <span class="hl">Where</span> is the milk?    garden  6 2</span><br>
+            </div>
+        </div>
+        <hr>
+        <div class="episode">
+            <div class="episode_title"><a name="task3">Task 3 Three supporting facts</a></div>
+            Multiple correct answers.<br>
+            <br>
+            <div class="code">
+                1 John moved to the bathroom.<br>
+                2 Sandra took the apple there.<br>
+                3 Daniel journeyed to the hallway.<br>
+                4 John journeyed to the hallway.<br>
+                5 John went to the kitchen.<br>
+                6 Sandra moved to the bedroom.<br>
+                7 Sandra went back to the garden.<br>
+                8 Sandra grabbed the football.<br>
+                9 <span class="hl2">John</span> travelled to the <span class="hl3">office</span>.<br>
+                10 <span class="hl2">John</span> grabbed the <span class="hl">milk</span>.<br>
+                11 Daniel went back to the office.<br>
+                12 Sandra dropped the apple.<br>
+                13 Where was the apple before the garden?   bedroom 12 7 6<br>
+                14 Mary moved to the garden.<br>
+                15 Mary got the apple.<br>
+                16 Mary moved to the office.<br>
+                17 Daniel went back to the bedroom.<br>
+                18 Mary went back to the kitchen.<br>
+                19 Mary went to the hallway.<br>
+                20 Where was the apple before the hallway?  kitchen 15 19 18<br>
+                21 Mary went back to the garden.<br>
+                22 Mary discarded the apple.<br>
+                23 Where was the apple before the hallway?  kitchen 22 19 18<br>
+                24 Mary went to the bedroom.<br>
+                25 Sandra got the apple.<br>
+                26 <span class="hl2">John</span> moved to the <span class="hl3">kitchen</span>.<br>
+                27 Daniel went to the hallway.<br>
+                28 Mary journeyed to the bathroom.<br>
+                29 <span class="hl2">John</span> moved to the <span class="hl3">garden</span>.<br>
+                30 <span class="hl2">John</span> travelled to the <span class="hl3">kitchen</span>.<br>
+                31 <span class="hl2">John</span> moved to the <span class="hl3">office</span>.<br>
+                32 Mary journeyed to the garden.<br>
+                33 Daniel went to the kitchen.<br>
+                34 <span class="hl2">John</span> left the <span class="hl">milk</span> <span class="hl3">there</span>.<br>
+                35 Sandra discarded the apple.<br>
+                36 Where was the milk before the office?    kitchen 34 31 30<br>
+                37 Sandra moved to the hallway.<br>
+                38 Mary went to the bedroom.<br>
+                <span class="suspicious">39 Where was the <span class="hl">milk</span> before the <span class="hl3">kitchen</span>?   garden  34 30 29</span><br>
+            </div>
+        </div>
+        <hr>
+        <div class="episode">
+            <div class="episode_title"><a name="task5">Task 5 Three arg relations</a></div>
+            Multiple correct answers.  Surely a human would do badly here.<br>
+            <br>
+            <div class="code">
+                1 Mary journeyed to the bathroom.<br>
+                2 Mary moved to the hallway.<br>
+                3 Mary went to the kitchen.<br>
+                4 Bill went back to the bedroom.<br>
+                5 Bill grabbed the apple there.<br>
+                6 Fred went back to the garden.<br>
+                7 Mary went to the garden.<br>
+                8 Fred took the milk there.<br>
+                9 Jeff moved to the hallway.<br>
+                10 Bill dropped the apple there.<br>
+                11 Fred handed the milk to Mary.<br>
+                12 Mary handed the milk to Fred.<br>
+                13 Who gave the milk?   Mary    12<br>
+                14 Fred went back to the bedroom.<br>
+                <span class="hl">15 Fred passed the milk to Bill.</span><br>
+                16 Who did Fred give the milk to?   Bill    15<br>
+                17 Fred took the apple there.<br>
+                <span class="hl">18 Fred gave the apple to Bill.</span><br>
+                19 Who gave the apple?  Fred    18<br>
+                20 Jeff went to the kitchen.<br>
+                21 Bill dropped the milk.<br>
+                <span class="suspicious">22 What did Fred give to Bill?  milk    15</span><br>
+            </div>
+        </div>
+        <hr>
+        <div class="episode">
+            <div class="episode_title"><a name="task8">Task 8 Lists, sets</a></div>
+            Items not listed in time or alphabetical order, but some other way.<br>
+            <br>
+            <div class="code">
+                1 John went to the hallway.<br>
+                2 Daniel travelled to the hallway.<br>
+                3 Mary went to the bathroom.<br>
+                4 Daniel got the <span class="hl">football</span> there.<br>
+                5 What is Daniel carrying?  football    4<br>
+                6 Mary journeyed to the office.<br>
+                7 Daniel grabbed the <span class="hl3">apple</span> there.<br>
+                8 What is Daniel carrying?  football,apple  4 7<br>
+                9 Mary journeyed to the kitchen.<br>
+                10 Daniel went to the bedroom.<br>
+                11 What is Daniel carrying?     football,apple  4 7<br>
+                12 Daniel dropped the <span class="hl">football</span> there.<br>
+                13 Daniel grabbed the <span class="hl">football</span> there.<br>
+                <span class="suspicious">14 What is Daniel carrying?     <span class="hl">football</span>,<span class="hl3">apple</span>  4 12 13 7</span><br>
+            </div>
+        </div>
+        <hr>
+        <div class="episode">
+            <div class="episode_title"><a name="task16">Task 16 Induction</a></div>
+            Surely this is confusing.<br>
+            <br>
+            <div class="code">
+                1 Bernhard is a rhino.<br>
+                2 Brian is a rhino.<br>
+                3 Bernhard is <span class="hl">white</span>.<br>
+                4 Brian is <span class="hl">white</span>.<br>
+                5 Lily is a lion.<br>
+                6 Lily is yellow.<br>
+                7 Greg is a rhino.<br>
+                8 Greg is <span class="hl3">green</span>.<br>
+                9 Julius is a rhino.<br>
+                <span class="suspicious">10 What color is Julius?    <span class="hl3">green</span>   9 7 8</span><br>
+            </div>
+        </div>
+    </div>
+
+</body></html>
