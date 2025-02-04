@@ -153,6 +153,7 @@
     </style>
 </head>
 <body>
+    <center>
     <div id="container">
         <div id="card">
             <div id="card-inner">
@@ -167,6 +168,7 @@
             </div>
         </div>
     </div>
+    </center>
 
     <script>
         // Device detection
@@ -382,7 +384,7 @@
             `;
 
             let lastRender = 0;
-            const FRAME_INTERVAL = 1000 / 24;
+            const FRAME_INTERVAL = 1000 / 40;
 
             function distanceToHue(distance) {
                 return (distance * 7.2) % 360; // Doubled color cycle rate
