@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Economica:ital,wght@0,400;0,700;1,400;1,700&family=Honk:SHLN@53.8&display=swap" rel="stylesheet">
+    <style>
+        /* Font classes */
+        .economica {
+            font-family: "Economica", sans-serif;
+        }
+        .honk {
+            font-family: "Honk", serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+            font-variation-settings: "MORF" 15, "SHLN" 53.8;
+        }
+
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: black;
+        }
+
+        #container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+
+        /* Stars */
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        /* Pulsating Background */
+        .pulse {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            border-radius: 100%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+
+        /* Flying Hearts */
+        .heart {
+            position: absolute;
+            pointer-events: none;
+        }
+        .heart svg {
+            fill: currentColor;
+            filter: drop-shadow(0 0 5px rgba(255,255,255,0.7));
+        }
+        .heart-trail {
+            position: absolute;
+            pointer-events: none;
+        }
+        .heart-trail svg {
+            fill: currentColor;
+            filter: drop-shadow(0 0 3px rgba(255,255,255,0.5));
+        }
+        .heart, .heart-trail {
+            color: hsl(var(--hue, 0), 100%, 70%);
+        }
+
+        /* Valentine Card */
+        #card {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 384px;
+            height: 320px;
+            background: linear-gradient(135deg, #fee2e2 0%, #fce7f3 100%);
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border: 2px solid #ff6b6b;
+            transform-style: preserve-3d;
+            transition: transform 0.3s ease-out;
+            z-index: 10; /* Ensure card is above hearts */
+        }
+
+        #card-inner {
+            position: absolute;
+            inset: 0;
+            border: 8px double #fca5a5;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            color: #991b1b;
+            text-align: center;
+            font-family: "Times New Roman", serif;
+        }
+
+        #card-inner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(180deg, rgba(254,226,226,0.5) 0%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .button {
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            font-size: 1.25rem;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            margin: 0 1rem;
+        }
+
+        .button-yes {
+            background: #ef4444;
+            color: white;
+        }
+        .button-yes:hover {
+            background: #dc2626;
+        }
+
+        .button-no {
+            background: #6b7280;
+            color: white;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+        .button-no:hover {
+            background: #4b5563;
+        }
+
+        .alert {
+            position: fixed;
+            top: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            color: #dc2626;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            z-index: 100;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="card">
+            <div id="card-inner">
+                <center>
+                <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">Violeta,</h1>
+                <h2 style="font-size: 2rem; margin-bottom: 2rem;">¿Serás mi San Valentín?</h2>
+                <div style="margin-top: 2rem;">
+                    <button class="button button-yes">SÍ</button>
+                    <button class="button button-no">NO</button>
+                </div>
+                </center>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Device detection
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+        // Create stars
+        function createStars() {
+            const container = document.getElementById('container');
+            for (let i = 0; i < 200; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + 'vw';
+                star.style.top = Math.random() * 100 + 'vh';
+                const size = Math.random() * 2 + 1;
+                star.style.width = size + 'px';
+                star.style.height = size + 'px';
+                star.style.opacity = Math.random() * 0.5 + 0.3;
+                container.appendChild(star);
+            }
+        }
+
+        // Create pulsating background
+        function createPulses() {
+            const container = document.getElementById('container');
+            const colors = [
+                'rgba(220,20,60,0.15)',
+                'rgba(147,51,234,0.15)',
+                'rgba(236,72,153,0.15)'
+            ];
+            
+            for (let i = 0; i < 3; i++) {
+                const pulse = document.createElement('div');
+                pulse.className = 'pulse';
+                pulse.style.background = `radial-gradient(circle, ${colors[i]} 0%, transparent 60%)`;
+                container.appendChild(pulse);
+            }
+        }
+
+        // Animate pulses
+        function animatePulses() {
+            const pulses = document.querySelectorAll('.pulse');
+            let phase = 0;
+            
+            setInterval(() => {
+                phase += 0.02;
+                pulses.forEach((pulse, i) => {
+                    const size = 50 + Math.sin(phase + i * 1.8) * 15;
+                    pulse.style.width = size + 'vw';
+                    pulse.style.height = size + 'vh';
+                });
+            }, 16);
+        }
+
+        // Card animation
+        let dodgeCount = 0;
+        const card = document.getElementById('card');
+        let cardAnimationFrame;
+
+        function animateCard() {
+            let time = 0;
+            const animate = () => {
+                time += 0.01;
+                // Increased wobble range and added more variation
+                const wobbleX = Math.sin(time) * 4 + Math.sin(time * 1.4) * 2;
+                const wobbleY = Math.cos(time * 0.7) * 4 + Math.cos(time * 1.1) * 2;
+                const wobbleZ = Math.sin(time * 0.5) * 2;
+                card.style.transform = `
+                    translate(-50%, -50%)
+                    perspective(1000px)
+                    rotateX(${20 + wobbleX/2}deg)
+                    rotateY(${wobbleY}deg)
+                    rotateZ(${wobbleZ}deg)
+                `;
+                cardAnimationFrame = requestAnimationFrame(animate);
+            };
+            animate();
+        }
+
+        function handleNo() {
+            if (isMobile) {
+                updateCardContent(true);
+                return;
+            }
+
+            dodgeCount++;
+            
+            if (dodgeCount === 4) {
+                dodgeCount = 0;
+                updateCardContent(true);
+                return;
+            }
+
+            cancelAnimationFrame(cardAnimationFrame);
+            
+            // Random variation in dodge angles
+            const randomX = -60 + (Math.random() * 40 - 20); // -80 to -40
+            const randomY = 30 + (Math.random() * 40 - 20);  // 10 to 50
+            const randomZ = 80 + (Math.random() * 40 - 20);  // 60 to 100
+            
+            card.style.transform = `
+                translate(-50%, -50%)
+                perspective(1000px)
+                rotateX(${randomX}deg)
+                rotateY(${randomY}deg)
+                rotateZ(${randomZ}deg)
+            `;
+
+            setTimeout(() => {
+                animateCard();
+            }, 500);
+        }
+
+        function updateCardContent(showNo) {
+            const inner = document.getElementById('card-inner');
+            if (showNo) {
+                inner.innerHTML = `
+                    <center>
+                    <div style="flex: 1"></div>
+                    <h2 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 2rem; font-family: 'Times New Roman', serif;">¿No?</h2>
+                    <div style="margin-bottom: 2rem;">
+                        <button class="button button-yes" onclick="resetCard()">SÍ</button>
+                        <button class="button button-no" onclick="resetCard()">NO</button>
+                    </div>
+                    <div style="flex: 1"></div>
+                    </center>
+                `;
+            } else {
+                inner.innerHTML = `
+                    <center>
+                    <div style="flex: 1"></div>
+                    <h1 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 1rem; font-family: 'Times New Roman', serif;">Violeta,</h1>
+                    <h2 style="font-size: 2rem; font-weight: bold; margin-bottom: 2rem; font-family: 'Times New Roman', serif;">¿Serás mi San Valentín?</h2>
+                    <div style="margin-bottom: 2rem;">
+                        <button class="button button-yes" onclick="showSuccess()">SÍ</button>
+                        <button class="button button-no" onclick="handleNo()">NO</button>
+                    </div>
+                    <div style="flex: 1"></div>
+                    </center>
+                `;
+            }
+        }
+
+        function resetCard() {
+            updateCardContent(false);
+            animateCard();
+        }
+
+        function showSuccess() {
+            const alert = document.createElement('div');
+            alert.className = 'alert';
+            alert.textContent = '¡Mi corazón sabía que dirías que sí! 💝';
+            document.body.appendChild(alert);
+            setTimeout(() => alert.remove(), 3000);
+            document.getElementById('card-inner').remove();
+            var x = document.getElementById('card');
+            for (var i = 0; i < 10; ++i) {
+                x.style.height *= 0.95;
+                x.style.width *= 0.95;
+            }
+        }
+
+        // Flying hearts animation
+        class Heart {
+            constructor() {
+                this.reset();
+                this.distance = Math.random() * 100; // Start at random distances
+                this.trail = [];
+            }
+
+            reset() {
+                this.angle = Math.random() * Math.PI * 2;
+                this.distance = 0;
+                this.speed = (Math.random() * 0.5 + 0.8) * 1.5; // 1.5x faster
+                this.size = Math.random() * 50 + 10;
+                this.rotation = Math.random() * 360;
+                this.opacity = Math.random() * 0.5 + 0.5;
+            }
+
+            update() {
+                // Store current position for trail
+                this.trail.push({
+                    distance: this.distance,
+                    rotation: this.rotation,
+                    opacity: this.opacity
+                });
+
+                // Limit trail length
+                if (this.trail.length > 20) {
+                    this.trail.shift();
+                }
+
+                this.distance += this.speed * 0.4;
+                this.rotation += this.speed;
+
+                if (this.distance > 100) {
+                    this.reset();
+                }
+            }
+        }
+
+        function createHearts() {
+            const hearts = Array(50).fill(null).map(() => new Heart());
+            return hearts;
+        }
+
+        function animateHearts(hearts) {
+            const container = document.getElementById('container');
+            
+            const heartSVG = `
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                </svg>
+            `;
+
+            let lastRender = 0;
+            const FRAME_INTERVAL = 1000 / 24;
+
+            function distanceToHue(distance) {
+                return (distance * 7.2) % 360; // Doubled color cycle rate
+            }
+
+            function render(timestamp) {
+                // Throttle frame rate
+                if (timestamp - lastRender < FRAME_INTERVAL) {
+                    requestAnimationFrame(render);
+                    return;
+                }
+                lastRender = timestamp;
+
+                // Clear previous hearts
+                document.querySelectorAll('.heart, .heart-trail').forEach(el => el.remove());
+
+                hearts.forEach(heart => {
+                    // Render trails
+                    heart.trail.forEach((pos, i) => {
+                        const trailEl = document.createElement('div');
+                        trailEl.className = 'heart-trail';
+                        const x = 50 + Math.cos(heart.angle) * pos.distance;
+                        const y = 50 + Math.sin(heart.angle) * pos.distance;
+                        const trailOpacity = (i / heart.trail.length) * 0.3 * 
+                                          (1 - (heart.distance - pos.distance) / 100);
+                        const hue = distanceToHue(pos.distance);
+                        
+                        trailEl.style.cssText = `
+                            left: ${x}vw;
+                            top: ${y}vh;
+                            width: ${heart.size * 0.8}px;
+                            height: ${heart.size * 0.8}px;
+                            opacity: ${trailOpacity};
+                            transform: translate(-50%, -50%) rotate(${pos.rotation}deg);
+                            color: hsl(${hue}, 100%, 70%);
+                        `;
+                        trailEl.innerHTML = heartSVG;
+                        container.appendChild(trailEl);
+                    });
+
+                    // Render heart
+                    const el = document.createElement('div');
+                    el.className = 'heart';
+                    const x = 50 + Math.cos(heart.angle) * heart.distance;
+                    const y = 50 + Math.sin(heart.angle) * heart.distance;
+                    const hue = distanceToHue(heart.distance);
+                    
+                    el.style.cssText = `
+                        left: ${x}vw;
+                        top: ${y}vh;
+                        width: ${heart.size}px;
+                        height: ${heart.size}px;
+                        opacity: ${heart.opacity};
+                        transform: translate(-50%, -50%) rotate(${heart.rotation}deg);
+                        color: hsl(${hue}, 100%, 70%);
+                    `;
+                    el.innerHTML = heartSVG;
+                    container.appendChild(el);
+
+                    // Update position
+                    heart.update();
+                });
+
+                requestAnimationFrame(render);
+            }
+
+            requestAnimationFrame(render);
+        }
+
+        // Initialize
+        createStars();
+        createPulses();
+        animatePulses();
+        animateCard();
+        
+        const hearts = createHearts();
+        animateHearts(hearts);
+
+        // Event listeners
+        document.querySelector('.button-yes').addEventListener('click', showSuccess);
+        document.querySelector('.button-no').addEventListener('click', handleNo);
+    </script>
+</body>
+</html>
