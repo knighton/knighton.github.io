@@ -73,8 +73,8 @@
             position: absolute;
             left: 50%;
             top: 50%;
-            width: 384px;
-            height: 320px;
+            width: 600px;
+            height: 500px;
             background: linear-gradient(135deg, #fee2e2 0%, #fce7f3 100%);
             border-radius: 8px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
@@ -113,7 +113,7 @@
         .button {
             padding: 0.75rem 2rem;
             border-radius: 9999px;
-            font-size: 1.25rem;
+            font-size: 3.5rem;
             font-weight: bold;
             border: none;
             cursor: pointer;
@@ -158,8 +158,8 @@
         <div id="card">
             <div id="card-inner">
                 <center>
-                <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">Violeta,</h1>
-                <h2 style="font-size: 2rem; margin-bottom: 2rem;">¿Serás mi San Valentín?</h2>
+                <h1 style="font-size: 4rem; margin-bottom: 1rem;">Violeta,</h1>
+                <h2 style="font-size: 3.5rem; margin-bottom: 2rem;">¿Serás mi San Valentín?</h2>
                 <div style="margin-top: 2rem;">
                     <button class="button button-yes">SÍ</button>
                     <button class="button button-no">NO</button>
@@ -287,7 +287,7 @@
                 inner.innerHTML = `
                     <center>
                     <div style="flex: 1"></div>
-                    <h2 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 2rem; font-family: 'Times New Roman', serif;">¿No?</h2>
+                    <h2 style="font-size: 4rem; font-weight: bold; margin-bottom: 2rem; font-family: 'Times New Roman', serif;">¿No?</h2>
                     <div style="margin-bottom: 2rem;">
                         <button class="button button-yes" onclick="resetCard()">SÍ</button>
                         <button class="button button-no" onclick="resetCard()">NO</button>
@@ -299,8 +299,8 @@
                 inner.innerHTML = `
                     <center>
                     <div style="flex: 1"></div>
-                    <h1 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 1rem; font-family: 'Times New Roman', serif;">Violeta,</h1>
-                    <h2 style="font-size: 2rem; font-weight: bold; margin-bottom: 2rem; font-family: 'Times New Roman', serif;">¿Serás mi San Valentín?</h2>
+                    <h1 style="font-size: 4rem; font-weight: bold; margin-bottom: 1rem; font-family: 'Times New Roman', serif;">Violeta,</h1>
+                    <h2 style="font-size: 3.5rem; font-weight: bold; margin-bottom: 2rem; font-family: 'Times New Roman', serif;">¿Serás mi San Valentín?</h2>
                     <div style="margin-bottom: 2rem;">
                         <button class="button button-yes" onclick="showSuccess()">SÍ</button>
                         <button class="button button-no" onclick="handleNo()">NO</button>
@@ -318,6 +318,7 @@
 
         function showSuccess() {
             const alert = document.createElement('div');
+            alert.style.fontSize = '300%';
             alert.className = 'alert';
             alert.textContent = '¡Mi corazón sabía que dirías que sí! 💝';
             document.body.appendChild(alert);
