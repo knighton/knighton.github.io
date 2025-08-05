@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>De Spiral Cipher Riddim - Kingston Crypto Crew</title>
+    <style>
+        :root {
+            --primary-color: #121212;
+            --secondary-color: #03DAC6;
+            --text-color: #e0e0e0;
+            --accent-color: #BB86FC;
+            --highlight-color: #CF6679;
+            --background-color: #1e1e1e;
+            --section-title-color: #333333;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(circle at 50% 50%, #2d1b38, #1e1e1e);
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-conic-gradient(
+                from 0deg,
+                rgba(187, 134, 252, 0.03) 0deg 10deg,
+                rgba(3, 218, 198, 0.03) 10deg 20deg
+            );
+            pointer-events: none;
+            z-index: -1;
+            animation: rotateBg 120s linear infinite;
+        }
+        
+        @keyframes rotateBg {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+        }
+        
+        header {
+            text-align: center;
+            padding: 2rem 0;
+            position: relative;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+            color: var(--secondary-color);
+            text-shadow: 
+                0 0 10px rgba(3, 218, 198, 0.7),
+                0 0 20px rgba(3, 218, 198, 0.5),
+                0 0 30px rgba(3, 218, 198, 0.3);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from { text-shadow: 0 0 10px rgba(3, 218, 198, 0.7), 0 0 20px rgba(3, 218, 198, 0.5), 0 0 30px rgba(3, 218, 198, 0.3); }
+            to { text-shadow: 0 0 15px rgba(3, 218, 198, 0.9), 0 0 25px rgba(3, 218, 198, 0.7), 0 0 35px rgba(3, 218, 198, 0.5); }
+        }
+        
+        h2 {
+            font-size: 1.5rem;
+            margin: 0.5rem 0 2rem;
+            color: var(--accent-color);
+        }
+        
+        .glow-line {
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--secondary-color), transparent);
+            margin: 2rem auto;
+            width: 80%;
+            box-shadow: 0 0 10px rgba(3, 218, 198, 0.7);
+        }
+        
+        .section {
+            margin-bottom: 2.5rem;
+            padding: 1.5rem;
+            background-color: rgba(18, 18, 18, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(
+                circle at 50% 50%,
+                rgba(187, 134, 252, 0.05) 0%,
+                transparent 70%
+            );
+            pointer-events: none;
+        }
+        
+        .section-title {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            color: var(--section-title-color);
+            letter-spacing: 2px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 0.5rem;
+        }
+        
+        .stage-direction {
+            font-style: italic;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+        
+        .speaker {
+            font-weight: bold;
+            margin-right: 0.5rem;
+            color: var(--secondary-color);
+        }
+        
+        .lyrics-line {
+            margin-left: 1.5rem;
+            margin-bottom: 0.3rem;
+        }
+        
+        .chinese, .spiral-speak {
+            margin-left: 2.5rem;
+            display: block;
+            margin-bottom: 0.3rem;
+            font-family: 'SimSun', 'STSong', serif;
+        }
+        
+        .chinese {
+            color: #FF9800;
+            text-shadow: 0 0 10px rgba(255, 152, 0, 0.7);
+        }
+        
+        .spiral-speak {
+            color: #64FFDA;
+        }
+        
+        .translation {
+            font-size: 0.8rem;
+            color: #9E9E9E;
+            font-style: italic;
+            margin-left: 2.5rem;
+            display: block;
+            margin-bottom: 0.7rem;
+        }
+        
+        .chorus {
+            background-color: rgba(30, 30, 30, 0.9);
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .pre-chorus {
+            background-color: rgba(30, 30, 30, 0.9);
+            border-left: 4px solid var(--secondary-color);
+        }
+        
+        .verse {
+            background-color: rgba(30, 30, 30, 0.9);
+        }
+        
+        .bridge {
+            background-color: rgba(30, 30, 30, 0.9);
+            border-left: 4px solid var(--highlight-color);
+        }
+        
+        .outro {
+            background-color: rgba(30, 30, 30, 0.9);
+        }
+        
+        .shout {
+            font-weight: bold;
+            color: var(--highlight-color);
+        }
+        
+        .whisper {
+            font-style: italic;
+            color: #9E9E9E;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            font-size: 0.8rem;
+            color: #757575;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.2rem;
+            }
+            
+            .lyrics-line, .chinese, .spiral-speak, .translation {
+                margin-left: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>De Spiral Cipher Riddim</h1>
+            <h2>By Kingston Crypto Crew</h2>
+            <div class="glow-line"></div>
+        </header>
+        
+        <div class="section verse">
+            <h3 class="section-title">INTRO</h3>
+            <p class="stage-direction">[Soft keyboard typing sounds]</p>
+            <p>
+                <span class="speaker">DR. MORRIS:</span> <span class="whisper">"Mi see some strange symbols 'pon di screen..."</span>
+            </p>
+            <p>
+                <span class="speaker">DR. CAMPBELL:</span> <span class="whisper">"What dem Chinese characters mean?"</span>
+            </p>
+            <p>
+                <span class="speaker">DR. BENNETT:</span> <span class="whisper">"Wait nuh... dem no look quite right..."</span>
+            </p>
+            <p class="stage-direction">[Beat begins to build]</p>
+        </div>
+        
+        <div class="section verse">
+            <h3 class="section-title">VERSE 1</h3>
+            <p class="stage-direction">(Gentle rhythm)</p>
+            <p>
+                <span class="speaker">DR. MORRIS:</span>
+            </p>
+            <p class="lyrics-line">Me a analyze di code, cyan sleep at night</p>
+            <p class="chinese">天機不可泄露</p>
+            <p class="translation">(Real Chinese: "Secrets cannot be revealed too much")</p>
+            <p class="lyrics-line">Di symbols dem a hide what in plain sight</p>
+            <p class="spiral-speak">窹竎竝竎竛窉</p>
+            <p class="translation">(Spiral speak: encoded ASCII)</p>
+            
+            <p class="lyrics-line">Me bruk it down fi mek sense outta nonsense</p>
+            <p class="spiral-speak">窗穳窪窉站竎</p>
+            <p class="translation">(Spiral speak: encoded ASCII)</p>
+            <p class="lyrics-line">Man dem tink we fool but we intelligence</p>
+            <p class="chinese">智慧如水流動</p>
+            <p class="translation">(Real Chinese: "Wisdom flows like water")</p>
+            
+            <p class="lyrics-line">Inna di lab wi sweat, eyes dem a burn</p>
+            <p class="spiral-speak">竍窉竊窉站竎</p>
+            <p class="translation">(Spiral speak: encoded ASCII)</p>
+            <p class="lyrics-line">Every pattern we learn, every symbol we turn</p>
+            <p class="chinese">冥思苦想終破解</p>
+            <p class="translation">(Real Chinese: "Deep thought finally cracks the code")</p>
+        </div>
+        
+        <div class="section pre-chorus">
+            <h3 class="section-title">PRE-CHORUS</h3>
+            <p class="stage-direction">(Building energy)</p>
+            <p>
+                <span class="speaker">ALL SCIENTISTS:</span>
+            </p>
+            <p class="lyrics-line">Look pon di screen! (<span class="spiral-speak">窹竎竝!</span>)</p>
+            <p class="lyrics-line">Check di machine! (<span class="spiral-speak">竎竛窉!</span>)</p>
+            <p class="lyrics-line">Run di routine! (<span class="spiral-speak">竒竌竔!</span>)</p>
+            <p class="lyrics-line">Cyaa believe weh wi seen! (<span class="spiral-speak">窉窹竎!</span>)</p>
+        </div>
+        
+        <div class="section chorus">
+            <h3 class="section-title">CHORUS</h3>
+            <p class="stage-direction">(Full energy)</p>
+            <p>
+                <span class="speaker">ALL SCIENTISTS:</span>
+            </p>
+            <p class="lyrics-line">Wi decode di Spiral, none cyaa test!</p>
+            <p class="lyrics-line">Shift di code points, wi a di best!</p>
+            <p class="lyrics-line">Thirty-one triple seven's di key, yuh get?</p>
+            <p class="lyrics-line">Kingston Crew crack di code, no sweat!</p>
+        </div>
+        
+        <div class="section verse">
+            <h3 class="section-title">VERSE 2</h3>
+            <p class="stage-direction">(Stronger rhythm)</p>
+            <p>
+                <span class="speaker">DR. CAMPBELL:</span>
+            </p>
+            <p class="lyrics-line">Di system dem create fi fool di rest</p>
+            <p class="chinese">無中生有時來</p>
+            <p class="translation">(Real Chinese: "Creating something from nothing")</p>
+            <p class="lyrics-line">But wi born fi decipher, put skills to test</p>
+            <p class="spiral-speak">窉站竒竌竔竎</p>
+            <p class="translation">(Spiral speak: encoded ASCII)</p>
+            
+            <p class="lyrics-line">Every digit, every shift, wi calculate</p>
+            <p class="spiral-speak">窍窉竘竏窉站</p>
+            <p class="translation">(Spiral speak: encoded ASCII)</p>
+            <p class="lyrics-line">From Chinese symbols, pure English translate</p>
+            <p class="chinese">大巧若拙大智</p>
+            <p class="translation">(Real Chinese: "Great skill seems clumsy, great wisdom...")</p>
+            
+            <p class="lyrics-line">Dem wonder how wi do it, dem a speculate</p>
+            <p class="spiral-speak">竒竔竕竎竍窉</p>
+            <p class="translation">(Spiral speak: encoded ASCII)</p>
+            <p class="lyrics-line">Unicode to ASCII, dat's di gate</p>
+            <p class="chinese">隱藏玄機待解</p>
+            <p class="translation">(Real Chinese: "Hidden secrets waiting to be solved")</p>
+        </div>
+        
+        <div class="section pre-chorus">
+            <h3 class="section-title">PRE-CHORUS</h3>
+            <p class="stage-direction">(Higher energy)</p>
+            <p>
+                <span class="speaker">ALL SCIENTISTS:</span>
+            </p>
+            <p class="lyrics-line">Break down di wall! (<span class="spiral-speak">窹竎竝!</span>)</p>
+            <p class="lyrics-line">Hear when wi call! (<span class="spiral-speak">竎竛窉!</span>)</p>
+            <p class="lyrics-line">Stand proud and tall! (<span class="spiral-speak">竒竌竔!</span>)</p>
+            <p class="lyrics-line">Kingston Crew nuh stall! (<span class="spiral-speak">窉窹竎!</span>)</p>
+        </div>
+        
+        <div class="section chorus">
+            <h3 class="section-title">CHORUS</h3>
+            <p class="stage-direction">(Full energy)</p>
+            <p>
+                <span class="speaker">ALL SCIENTISTS:</span>
+            </p>
+            <p class="lyrics-line">Wi decode di Spiral, none cyaa test!</p>
+            <p class="lyrics-line">Shift di code points, wi a di best!</p>
+            <p class="lyrics-line">Thirty-one triple seven's di key, yuh get?</p>
+            <p class="lyrics-line">Kingston Crew crack di code, no sweat!</p>
+        </div>
+        
+        <div class="section verse">
+            <h3 class="section-title">DECODING INTERLUDE</h3>
+            <p class="stage-direction">(Computer beeps, focused laboratory atmosphere)</p>
+            <p>
+                <span class="speaker">DR. MORRIS:</span>
+            </p>
+            <p class="lyrics-line">Wait, look yah! A pattern inna di noise</p>
+            <p class="lyrics-line">Every symbol shifting by a constant choice</p>
+            <p class="chinese">電腦顯示異常值</p>
+            <p class="translation">(Real Chinese: "Computer displays anomalous values")</p>
+            
+            <p>
+                <span class="speaker">DR. CAMPBELL:</span>
+            </p>
+            <p class="lyrics-line">First letter 'A' turn to... weh dis mean?</p>
+            <p class="spiral-speak">窹</p>
+            <p class="translation">(Spiral speak: encoded 'A')</p>
+            <p class="lyrics-line">Unicode point jump by... hmm, lemme see</p>
+            <p class="lyrics-line">31337! Di hacker code, ya understand?</p>
+            
+            <p>
+                <span class="speaker">DR. BENNETT:</span>
+            </p>
+            <p class="lyrics-line">31337 equals "elite" when flip like so!</p>
+            <p class="lyrics-line">Leet speak plus Unicode, a wicked combo</p>
+            <p class="spiral-speak">竎竛窉站 = 31337</p>
+            <p class="translation">(Spiral speak: number representation)</p>
+            
+            <p class="stage-direction">(Typing intensifies, excitement builds)</p>
+            
+            <p>
+                <span class="speaker">DR. MORRIS:</span>
+            </p>
+            <p class="lyrics-line">If we shift back by dis amount precise</p>
+            <p class="lyrics-line">Subtract di leet code, see weh inside</p>
+            <p class="lyrics-line">'窹' minus 31337 equals 'A'</p>
+            <p class="lyrics-line">'竎' minus 31337 equals 'B'</p>
+            <p class="lyrics-line">Dis a di breakthrough, we find di way!</p>
+        </div>
+        
+        <div class="section verse">
+            <h3 class="section-title">VERSE 3</h3>
+            <p class="stage-direction">(Peak intensity)</p>
+            <p>
+                <span class="speaker">DR. BENNETT:</span>
+            </p>
+            <p class="lyrics-line">Who woulda tink Peter Piper inna Chinese dress?</p>
+            <p class="chinese">見微知著察其</p>
+            <p class="translation">(Real Chinese: "See small details to understand the whole")</p>
+            <p class="lyrics-line">Add thirty-one triple seven, release di stress</p>
+            <p class="spiral-speak">窉站竎站站竎</p>
+            <p class="translation">(Spiral speak: encoded ASCII)</p>
+            
+            <p class="lyrics-line">"Pickled peppers" turn to symbols, what a mess!</p>
+            <p class="spiral-speak">窕穳竀竑竎竛</p>
+            <p class="translation">(Spiral speak: encoded ASCII)</p>
+            <p class="lyrics-line">But di Kingston Crew nuh accept defeat, yes?</p>
+            <p class="chinese">化繁為簡方為道</p>
+            <p class="translation">(Real Chinese: "Simplifying complexity is the way")</p>
+            
+            <p class="lyrics-line">Wi crack di code like coconut, nuff impress</p>
+            <p class="spiral-speak">竔竎竍窉站竎</p>
+            <p class="translation">(Spiral speak: encoded ASCII)</p>
+            <p class="lyrics-line">From Kingston lab to di world, wi express</p>
+            <p class="chinese">萬物皆有規律</p>
+            <p class="translation">(Real Chinese: "Everything has its pattern")</p>
+        </div>
+        
+        <div class="section verse">
+            <h3 class="section-title">REVELATION VERSE</h3>
+            <p class="stage-direction">(Urgent rhythm with digital glitches)</p>
+            <p>
+                <span class="speaker">DR. CAMPBELL:</span>
+            </p>
+            <p class="lyrics-line">Mi test di pattern on different text</p>
+            <p class="lyrics-line">Encryption scheme reveal itself next</p>
+            <p class="spiral-speak">窕窉站竒竍窉 竎竓竞竞</p>
+            <p class="translation">(Spiral speak: "hidden message here")</p>
+            
+            <p class="lyrics-line">Each letter shift by same amount</p>
+            <p class="lyrics-line">Di number elite when we count</p>
+            <p class="chinese">破解密碼如開鎖</p>
+            <p class="translation">(Real Chinese: "Cracking code is like unlocking")</p>
+            
+            <p>
+                <span class="speaker">DR. MORRIS:</span>
+            </p>
+            <p class="lyrics-line">Dem hide messages inna plain sight</p>
+            <p class="lyrics-line">Chinese-looking text dat nobody read right</p>
+            <p class="lyrics-line">But wi crack it now, wi bring it to light</p>
+            <p class="spiral-speak">竊窉竎站竒窹竛</p>
+            <p class="lyrics-line">Turn back to English, everything tight!</p>
+            
+            <p>
+                <span class="speaker">ALL SCIENTISTS:</span>
+            </p>
+            <p class="lyrics-line">Write a program, automate di task</p>
+            <p class="lyrics-line">Soon every cipher will unmask!</p>
+        </div>
+        
+        <div class="section bridge">
+            <h3 class="section-title">BRIDGE</h3>
+            <p class="stage-direction">(Breakdown with keyboard typing sounds)</p>
+            <p>
+                <span class="speaker">DR. MORRIS:</span>
+            </p>
+            <p class="lyrics-line">"Take di symbols..." (<span class="spiral-speak">窹竎竝竎竛</span>)</p>
+            <p>
+                <span class="speaker">DR. CAMPBELL:</span>
+            </p>
+            <p class="lyrics-line">"Extract di numbers..." (<span class="spiral-speak">窉窹竒站</span>)</p>
+            <p>
+                <span class="speaker">DR. BENNETT:</span>
+            </p>
+            <p class="lyrics-line">"Subtract thirty-one triple seven..." (<span class="spiral-speak">竎竛窉站</span>)</p>
+            <p>
+                <span class="speaker">ALL:</span> "BOOM! ENGLISH TEXT!"
+            </p>
+        </div>
+        
+        <div class="section chorus">
+            <h3 class="section-title">FINAL CHORUS</h3>
+            <p class="stage-direction">(Ultimate energy)</p>
+            <p>
+                <span class="speaker">ALL SCIENTISTS:</span>
+            </p>
+            <p class="lyrics-line">Wi decode di Spiral, none cyaa test!</p>
+            <p class="lyrics-line">Shift di code points, wi a di best!</p>
+            <p class="lyrics-line">Thirty-one triple seven's di key, yuh get?</p>
+            <p class="lyrics-line">Kingston Crew crack di code, NO SWEAT!</p>
+        </div>
+        
+        <div class="section verse">
+            <h3 class="section-title">DEMONSTRATION VERSE</h3>
+            <p class="stage-direction">(Rhythmic typing builds with drums)</p>
+            <p>
+                <span class="speaker">DR. BENNETT:</span>
+            </p>
+            <p class="lyrics-line">Now watch we demonstrate di whole thing:</p>
+            <p class="lyrics-line">Start with text "SPIRAL CODE" plain and clean</p>
+            <p class="lyrics-line">Add 31337 to each letter's Unicode</p>
+            <p class="spiral-speak">窹站竐竘竏竞竑竍窃窈窃</p>
+            <p class="translation">(Spiral speak encoding of "SPIRAL CODE")</p>
+            
+            <p>
+                <span class="speaker">DR. MORRIS:</span>
+            </p>
+            <p class="lyrics-line">Now try fi read it! What you see?</p>
+            <p class="lyrics-line">Chinese-looking text, a mystery</p>
+            <p class="lyrics-line">But now subtract di magic key</p>
+            <p class="lyrics-line">Original message, plain as can be!</p>
+            
+            <p>
+                <span class="speaker">DR. CAMPBELL:</span>
+            </p>
+            <p class="lyrics-line">We build compiler, decoder too</p>
+            <p class="lyrics-line">Now anyone can run it through</p>
+            <p class="lyrics-line">Hide your message in Chinese view</p>
+            <p class="lyrics-line">Kingston Spiral Cipher breakthrough!</p>
+        </div>
+        
+        <div class="section outro">
+            <h3 class="section-title">OUTRO</h3>
+            <p class="stage-direction">(Gradually calming)</p>
+            <p>
+                <span class="speaker">DR. MORRIS:</span> <span class="whisper">"So when yuh see dem Chinese symbols..."</span>
+            </p>
+            <p>
+                <span class="speaker">DR. CAMPBELL:</span> <span class="whisper">"Just subtract 31337..."</span>
+            </p>
+            <p>
+                <span class="speaker">DR. BENNETT:</span> <span class="whisper">"And watch di truth reveal itself..."</span>
+            </p>
+            <p>
+                <span class="speaker">ALL:</span> <span class="whisper">"Kingston Crypto Crew... OUT!"</span>
+            </p>
+            <p class="stage-direction">[Keyboard sounds fade with echo effect]</p>
+        </div>
+        
+        <footer>
+            <div class="glow-line"></div>
+            <p>The Language of the Spiral - Jamaican Rap Cipher - Kingston Crypto Crew</p>
+        </footer>
+    </div>
+</body>
+</html>
